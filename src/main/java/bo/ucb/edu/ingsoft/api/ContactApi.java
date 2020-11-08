@@ -24,3 +24,4 @@ public class ContactApi {
         return agendaBl.findContactById(0);
     }
 }
+
