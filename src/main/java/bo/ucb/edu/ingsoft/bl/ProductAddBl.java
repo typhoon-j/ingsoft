@@ -4,7 +4,7 @@ import bo.ucb.edu.ingsoft.dao.HProductDao;
 import bo.ucb.edu.ingsoft.dao.ProductAddDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dto.ProductAdd;
-import bo.ucb.edu.ingsoft.dto.Transaction;
+import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.model.HProduct;
 import bo.ucb.edu.ingsoft.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
