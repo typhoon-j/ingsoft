@@ -1,6 +1,9 @@
 package bo.ucb.edu.ingsoft.dto;
 
-public class User {
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserCreate {
 
     private Integer userId;
     private String firstname;
@@ -8,7 +11,7 @@ public class User {
     private String phone;
     private String email;
 
-    public User(){
+    public UserCreate(){
     }
 
     public Integer getUserId() { return userId; }

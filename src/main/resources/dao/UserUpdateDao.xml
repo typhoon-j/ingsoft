@@ -3,19 +3,6 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bo.ucb.edu.ingsoft.dao.UsertDao">
-    <select id="findByContactId" resultType="bo.ucb.edu.ingsoft.model.User">
-        SELECT
-               user_id as userId,
-               firstname as firstName,
-               lastname as firstSurname
-        FROM user
-        WHERE
-            user_id = 2
-    </select>
-    <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.User">
-        INSERT INTO user VALUES (null, #{addressId},#{firstname}, #{lastname}, #{phone}, #{email},
-        #{TxStatus}, #{TxDate}, #{TxId}, #{TxHost}, #{TxUserId})
-    </insert>
     <update id="update" parameterType="bo.ucb.edu.ingsoft.model.User">
         UPDATE user SET address_id= #{addressId}, firstname= #{firstname}, lastname= #{lastname}, phone= #{phone},email=#{email},
         tx_status= #{TxStatus}, tx_date= #{TxDate}, tx_id= #{TxId}, tx_host= #{TxHost}, tx_user_id= #{TxUserId}
