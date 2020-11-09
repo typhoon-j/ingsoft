@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProductUpdate {
+
     private Integer price;
     private Integer stock;
 

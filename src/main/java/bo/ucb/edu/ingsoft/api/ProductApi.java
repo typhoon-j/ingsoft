@@ -1,9 +1,11 @@
 package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.ProductAddBl;
+import bo.ucb.edu.ingsoft.bl.ProductDeleteBl;
 import bo.ucb.edu.ingsoft.bl.ProductUpdateBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
 import bo.ucb.edu.ingsoft.dto.ProductAdd;
+import bo.ucb.edu.ingsoft.dto.ProductDelete;
 import bo.ucb.edu.ingsoft.dto.ProductUpdate;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.model.HProduct;
@@ -25,15 +27,26 @@ public class ProductApi {
     private ProductAddBl productAddBl;
     private TransactionBl transactionBl;
     private ProductUpdateBl productUpdateBl;
+    private ProductDeleteBl productDeleteBl;
+    private Integer cProductId;
 
     /* private static final logger LOGGER = ILoggerFactory.getLogger(ProductApi.class); */
 
     @Autowired
-    public ProductApi(ProductAddBl productAddBl, TransactionBl transactionBl, ProductUpdateBl productUpdateBl){
+    public ProductApi(ProductAddBl productAddBl, TransactionBl transactionBl, ProductUpdateBl productUpdateBl, ProductDeleteBl productDeleteBl){
         this.productAddBl = productAddBl;
         this.transactionBl = transactionBl;
         this.productUpdateBl = productUpdateBl;
+        this.productDeleteBl = productDeleteBl;
 
+    }
+
+    public Integer getcProductId() {
+        return cProductId;
+    }
+
+    public void setcProductId(Integer cProductId) {
+        this.cProductId = cProductId;
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
@@ -42,16 +55,23 @@ public class ProductApi {
 
         transactionBl.createTransaction(transaction);
         ProductAdd productResponse = productAddBl.createProduct(productAdd, product, transaction, hProduct);
-        return productAdd;
+        return productResponse;
     }
 
-    @RequestMapping(value = "/student", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/products/", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
     public ProductUpdate updateProduct(@RequestBody ProductUpdate productUpdate, Product product, HProduct hProduct, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
         transactionBl.createTransaction(transaction);
         ProductUpdate productResponse = productUpdateBl.updateProduct(productUpdate, product, transaction, hProduct);
-        return productUpdate;
+        return productResponse;
+    }
+
+    @RequestMapping(value = "/products/", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
+    public ProductDelete updateDelete(@RequestBody ProductDelete productDelete){
+
+        ProductDelete productResponse = productDeleteBl.deleteProduct(productDelete);
+        return productResponse;
     }
 
 }

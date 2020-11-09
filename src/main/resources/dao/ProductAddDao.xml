@@ -10,4 +10,14 @@
             #{stock}, 1, #{txHost}, #{txUserId}, #{txDate}
         )
     </insert>
+    <insert id="updateProduct" parameterType="bo.ucb.edu.ingsoft.dto.ProductUpdate">
+        UPDATE product
+        SET price = #{price}, stock = #{stock}
+        WHERE producto_id = #{productoId}
+    </insert>
+    <insert id="deleteProduct" parameterType="bo.ucb.edu.ingsoft.dto.ProductDelete">
+        DELETE  product
+        WHERE producto_id = #{productoId}
+    </insert>
+
 </mapper>
