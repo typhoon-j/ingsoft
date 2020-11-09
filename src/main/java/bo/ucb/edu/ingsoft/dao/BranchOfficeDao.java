@@ -5,8 +5,10 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface BranchOfficeDao {
-    public BranchOffice findByBranchOfficeId(Integer branchOfficeId );
+    public BranchOffice findByBranchOfficeId(Integer branchOfficeId);
 
+    public void create(BranchOffice branchOffice);
 }
+
 
 
