@@ -437,7 +437,7 @@ paths:
       tags:
       - order
       summary: Lista todos los comporbantes de pago
-      description: Eddy Alba
+      description: Eddie Alba
       operationId: getVouchers
       responses:
         200:
@@ -460,7 +460,7 @@ paths:
       tags:
       - order
       summary: Entraga el comprobante de pago
-      description: Eddy Alba
+      description: Eddie Alba
       operationId: getBill
       parameters:
       - name: orderId
@@ -641,7 +641,7 @@ paths:
       tags:
       - others
       summary: Lista los datos necesarios para Atencion al Cliente
-      description: Eddy Alba
+      description: Eddie Alba
       operationId: getContact    
       responses:
         200:
