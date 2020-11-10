@@ -2,6 +2,7 @@ package bo.ucb.edu.ingsoft.model;
 
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Service
@@ -11,7 +12,7 @@ public class Voucher {
     private Integer orderId;
     private Integer paymentId;
     private Date date;
-    private Float total;
+    private BigDecimal total;
     private Integer txStatus;
     private Integer txId;
     private String txHost;
@@ -56,11 +57,11 @@ public class Voucher {
         this.date = date;
     }
 
-    public Float getTotal() {
+    public BigDecimal getTotal() {
         return total;
     }
 
-    public void setTotal(Float total) {
+    public void setTotal(BigDecimal total) {
         this.total = total;
     }
 
