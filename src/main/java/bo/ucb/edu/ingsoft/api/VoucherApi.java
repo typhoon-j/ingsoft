@@ -1,12 +1,10 @@
 package bo.ucb.edu.ingsoft.api;
 
-import bo.ucb.edu.ingsoft.bl.ProductAddBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
 import bo.ucb.edu.ingsoft.bl.VoucherAddBl;
-import bo.ucb.edu.ingsoft.dto.ProductAdd;
-import bo.ucb.edu.ingsoft.dto.Transaction;
-import bo.ucb.edu.ingsoft.model.HProduct;
-import bo.ucb.edu.ingsoft.model.Product;
+import bo.ucb.edu.ingsoft.dto.VoucherAdd;
+import bo.ucb.edu.ingsoft.model.Transaction;
+import bo.ucb.edu.ingsoft.model.Voucher;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -33,11 +31,11 @@ public class VoucherApi {
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
-    public VoucherAdd createProduct(@RequestBody VoucherAdd voucherAdd, Voucher voucher, HVoucher hVoucher, HttpServletRequest request){
+    public VoucherAdd createVoucher(@RequestBody VoucherAdd voucherAdd, Voucher voucher, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
         transactionBl.createTransaction(transaction);
-        VoucherAdd voucherResponse = voucherAddBl.createProduct(voucherAdd, voucher, transaction, hVoucher);
+        VoucherAdd voucherResponse = voucherAddBl.createVoucher(voucherAdd, voucher, transaction);
         return voucherAdd;
     }
 }

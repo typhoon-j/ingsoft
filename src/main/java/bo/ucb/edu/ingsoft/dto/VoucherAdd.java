@@ -2,66 +2,69 @@ package bo.ucb.edu.ingsoft.dto;
 
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.Date;
+
 @Service
 public class VoucherAdd {
-    private String brand;
-    private String model;
-    private Integer price;
-    private String description;
-    private Integer stock;
+    private Integer voucherId;
+    private Integer orderId;
+    private Integer paymentId;
+    private Date date;
+    private BigDecimal total;
 
     public VoucherAdd(){
 
     }
 
-    public String getBrand() {
-        return brand;
+    public Integer getVoucherId() {
+        return voucherId;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setVoucherId(Integer voucherId) {
+        this.voucherId = voucherId;
     }
 
-    public String getModel() {
-        return model;
+    public Integer getOrderId() {
+        return orderId;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
     }
 
-    public Integer getPrice() {
-        return price;
+    public Integer getPaymentId() {
+        return paymentId;
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
+    public void setPaymentId(Integer paymentId) {
+        this.paymentId = paymentId;
     }
 
-    public String getDescription() {
-        return description;
+    public Date getDate() {
+        return date;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public Integer getStock() {
-        return stock;
+    public Float getTotal() {
+        return total;
     }
 
-    public void setStock(Integer stock) {
-        this.stock = stock;
+    public void setTotal(BigDecimal total) {
+        this.total = total;
     }
 
     @Override
     public String toString() {
         return "VoucherAdd{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                ", stock=" + stock +
+                "voucherId='" + voucherId + '\'' +
+                ", orderId='" + orderId + '\'' +
+                ", paymentId=" + paymentId +
+                ", date='" + date + '\'' +
+                ", total=" + total +
                 '}';
     }
 }
