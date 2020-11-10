@@ -49,7 +49,7 @@ public class VoucherAdd {
         this.date = date;
     }
 
-    public Float getTotal() {
+    public BigDecimal getTotal() {
         return total;
     }
 
