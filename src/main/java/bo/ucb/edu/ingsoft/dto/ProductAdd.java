@@ -2,13 +2,17 @@ package bo.ucb.edu.ingsoft.dto;
 
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.Date;
+
 @Service
 public class ProductAdd {
     private String brand;
     private String model;
-    private Integer price;
+    private BigDecimal price;
     private String description;
     private Integer stock;
+
 
     public ProductAdd(){
 
@@ -30,11 +34,11 @@ public class ProductAdd {
         this.model = model;
     }
 
-    public Integer getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -53,6 +57,7 @@ public class ProductAdd {
     public void setStock(Integer stock) {
         this.stock = stock;
     }
+
 
     @Override
     public String toString() {

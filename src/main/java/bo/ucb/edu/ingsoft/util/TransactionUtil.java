@@ -1,6 +1,6 @@
 package bo.ucb.edu.ingsoft.util;
 
-import bo.ucb.edu.ingsoft.model.Transaction;
+import bo.ucb.edu.ingsoft.dto.Transaction;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;

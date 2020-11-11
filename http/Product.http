@@ -1,0 +1,34 @@
+
+POST http://localhost:8080/products
+Accept: application/json
+Content-Type: application/json
+
+{
+"brand": "Alienware",
+"model": "Area 51",
+"price": 15500.5,
+"description": "Laptop gamer de 17,3 pulgadas",
+"stock": 15
+}
+
+###
+
+PATCH http://localhost:8080/products/edit
+Accept: application/json
+Content-Type: application/json
+
+{
+
+"price": 12511.5,
+"stock": 5
+}
+
+###
+
+PATCH http://localhost:8080/products/delete
+Accept: application/json
+Content-Type: application/json
+
+{
+"txStatus": 0
+}

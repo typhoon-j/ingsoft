@@ -2,6 +2,7 @@ package bo.ucb.edu.ingsoft.model;
 
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Service
@@ -9,15 +10,17 @@ public class Product {
     private Integer productId;
     private String brand;
     private String model;
-    private Integer price;
+    private BigDecimal price;
     private String description;
     private Integer stock;
     private Integer txId;
     private String txHost;
     private Integer txUserId;
     private Date txDate;
+    private Integer txStatus;
 
-    public Product (){
+
+    public Product(){
 
     }
 
@@ -45,11 +48,11 @@ public class Product {
         this.model = model;
     }
 
-    public Integer getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -101,6 +104,14 @@ public class Product {
         this.txDate = txDate;
     }
 
+    public Integer getTxStatus() {
+        return txStatus;
+    }
+
+    public void setTxStatus(Integer txStatus) {
+        this.txStatus = txStatus;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -114,6 +125,7 @@ public class Product {
                 ", txHost='" + txHost + '\'' +
                 ", txUserId=" + txUserId +
                 ", txDate=" + txDate +
+                ", txStatus=" + txStatus +
                 '}';
     }
 }

@@ -2,23 +2,24 @@ package bo.ucb.edu.ingsoft.model;
 
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Service
 public class Order {
     private Integer orderId;
     private Integer productId;
-    private Integer userId;
-    private Integer deliveryId;
     private Integer addressId;
-    private String date;
+    private Integer userId;
+    private Date date;
     private Integer status;
-    private Integer total;
-    private Integer txStatus;
+    private Integer state;
+    private BigDecimal total;
     private Integer txId;
     private String txHost;
     private Integer txUserId;
     private Date txDate;
+    private Integer txStatus;
 
     public Order(){
 
@@ -40,22 +41,6 @@ public class Order {
         this.productId = productId;
     }
 
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public Integer getDeliveryId() {
-        return deliveryId;
-    }
-
-    public void setDeliveryId(Integer deliveryId) {
-        this.deliveryId = deliveryId;
-    }
-
     public Integer getAddressId() {
         return addressId;
     }
@@ -64,11 +49,19 @@ public class Order {
         this.addressId = addressId;
     }
 
-    public String getDate() {
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -80,20 +73,20 @@ public class Order {
         this.status = status;
     }
 
-    public Integer getTotal() {
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+    public BigDecimal getTotal() {
         return total;
     }
 
-    public void setTotal(Integer total) {
+    public void setTotal(BigDecimal total) {
         this.total = total;
-    }
-
-    public Integer getTxStatus() {
-        return txStatus;
-    }
-
-    public void setTxStatus(Integer txStatus) {
-        this.txStatus = txStatus;
     }
 
     public Integer getTxId() {
@@ -128,22 +121,30 @@ public class Order {
         this.txDate = txDate;
     }
 
+    public Integer getTxStatus() {
+        return txStatus;
+    }
+
+    public void setTxStatus(Integer txStatus) {
+        this.txStatus = txStatus;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
                 "orderId=" + orderId +
                 ", productId=" + productId +
-                ", userId=" + userId +
-                ", deliveryId=" + deliveryId +
                 ", addressId=" + addressId +
-                ", date='" + date + '\'' +
+                ", userId=" + userId +
+                ", date=" + date +
                 ", status=" + status +
+                ", state=" + state +
                 ", total=" + total +
-                ", txStatus=" + txStatus +
                 ", txId=" + txId +
                 ", txHost='" + txHost + '\'' +
                 ", txUserId=" + txUserId +
                 ", txDate=" + txDate +
+                ", txStatus=" + txStatus +
                 '}';
     }
 }

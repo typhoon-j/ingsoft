@@ -1,13 +1,13 @@
 spring:
   application:
-    name: buyathome
+    name: ingsoft
   datasource:
     name: buyathome
     platform: mysql
-    url: jdbc:mysql://localhost:3306/buyathome?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/buyathome
     username: root
-    password: 2208
-    driver-class-name: com.mysql.jdbc.Driver
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       connectionTestQuery: select 1
       maximum-pool-size: 2
