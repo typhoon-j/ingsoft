@@ -34,7 +34,8 @@ public class ProductBl {
 
         return productAdd;
     }
-    public ProductUpdate updateProduct(ProductUpdate productUpdate,Transaction transaction, Product product){
+    public ProductUpdate updateProduct(ProductUpdate productUpdate,Transaction transaction, Product product, Integer productId){
+        product.setProductId(productId);
         product.setTxDate(transaction.getTxDate());
         product.setTxUserId(transaction.getTxUserId());
         product.setTxHost(transaction.getTxHost());
@@ -46,9 +47,9 @@ public class ProductBl {
         return productUpdate;
     }
 
-    public Product deleteProduct(  Transaction transaction, Product product){
+    public Product deleteProduct(  Transaction transaction, Product product, Integer productId){
 
-
+        product.setProductId(productId);
         product.setTxDate(transaction.getTxDate());
         product.setTxUserId(transaction.getTxUserId());
         product.setTxHost(transaction.getTxHost());

@@ -10,10 +10,7 @@ import bo.ucb.edu.ingsoft.model.Product;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -38,21 +35,21 @@ public class ProductApi {
         return productResponse;
     }
 
-    @RequestMapping(value = "/edit", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
-    public ProductUpdate updateProduct(@RequestBody ProductUpdate productUpdate,Product product, HttpServletRequest request){
+    @RequestMapping(value = "/{productId}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
+    public ProductUpdate updateProduct(@RequestBody ProductUpdate productUpdate,Product product, HttpServletRequest request, @PathVariable int productId){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
         transactionBl.createTransaction(transaction);
-        ProductUpdate productResponse = productBl.updateProduct(productUpdate,transaction, product);
+        ProductUpdate productResponse = productBl.updateProduct(productUpdate,transaction, product, productId);
         return productResponse;
     }
 
-    @RequestMapping(value = "/delete", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
-    public Product deleteProduct (@RequestBody Product product, HttpServletRequest request){
+    @RequestMapping(value = "/{productId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
+    public Product deleteProduct (@RequestBody Product product, HttpServletRequest request, @PathVariable int productId){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
         transactionBl.createTransaction(transaction);
-        Product productResponse = productBl.deleteProduct( transaction, product);
+        Product productResponse = productBl.deleteProduct( transaction, product, productId);
         return productResponse;
     }
 

@@ -13,19 +13,19 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:8080/products/edit
+PATCH http://localhost:8080/products/2
 Accept: application/json
 Content-Type: application/json
 
 {
 
 "price": 12511.5,
-"stock": 10
+"stock": 100
 }
 
 ###
 
-PATCH http://localhost:8080/products/delete
+DELETE http://localhost:8080/products/5
 Accept: application/json
 Content-Type: application/json
 

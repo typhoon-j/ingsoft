@@ -15,14 +15,14 @@
         UPDATE product
         SET price = #{price}, stock = #{stock},
             tx_id = #{txId}, tx_host= #{txHost}, tx_user_id= #{txUserId}, tx_date= #{txDate}
-        WHERE product_id = 1
+        WHERE product_id = #{productId}
         AND tx_status=1
     </insert>
     <insert id="deleteProduct" parameterType="bo.ucb.edu.ingsoft.dto.ProductDelete">
         UPDATE  product
         SET tx_status = 0,
             tx_id = #{txId}, tx_host= #{txHost}, tx_user_id= #{txUserId}, tx_date= #{txDate}
-        WHERE product_id = 1
+        WHERE product_id = #{productId}
 
     </insert>
 
