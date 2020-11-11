@@ -23,7 +23,7 @@ public class UserCreateBl {
     private HUserDao hUserDao;
 
     @Autowired
-    public UserCreateBl(UserCreateDao userCreateDao, TransactionDao transactionDao, HUserDao hUserDao){
+    public UserCreateBl(UserCreateDao userCreateDao, TransactionDao transactionDao){
         this.userCreateDao = userCreateDao;
         this.transactionDao = transactionDao;
         this.hUserDao = hUserDao;

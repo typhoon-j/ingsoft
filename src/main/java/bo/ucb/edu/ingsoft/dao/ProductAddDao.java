@@ -3,9 +3,9 @@ package bo.ucb.edu.ingsoft.dao;
 import bo.ucb.edu.ingsoft.dto.ProductDelete;
 import bo.ucb.edu.ingsoft.dto.ProductUpdate;
 import bo.ucb.edu.ingsoft.model.Product;
-import org.springframework.stereotype.Service;
+import org.apache.ibatis.annotations.Mapper;
 
-@Service
+@Mapper
 public interface ProductAddDao {
     public void create(Product product);
 

@@ -1,9 +1,9 @@
 package bo.ucb.edu.ingsoft.dao;
 
 import  bo.ucb.edu.ingsoft.model.User;
-import org.springframework.stereotype.Service;
+import org.apache.ibatis.annotations.Mapper;
 
-@Service
+@Mapper
 public interface UserCreateDao {
 
     public User create(User user);

@@ -28,7 +28,6 @@ public class ProductApi {
     private TransactionBl transactionBl;
     private ProductUpdateBl productUpdateBl;
     private ProductDeleteBl productDeleteBl;
-    private Integer cProductId;
 
     /* private static final logger LOGGER = ILoggerFactory.getLogger(ProductApi.class); */
 
@@ -41,13 +40,6 @@ public class ProductApi {
 
     }
 
-    public Integer getcProductId() {
-        return cProductId;
-    }
-
-    public void setcProductId(Integer cProductId) {
-        this.cProductId = cProductId;
-    }
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
     public ProductAdd createProduct(@RequestBody ProductAdd productAdd, Product product, HProduct hProduct, HttpServletRequest request){
