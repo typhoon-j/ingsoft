@@ -12,7 +12,5 @@ public interface ProductDao {
 
     public void deleteProduct(Product product);
 
-    public Product bucarProduct();
-
 
 }

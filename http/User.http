@@ -1,0 +1,16 @@
+
+POST http://localhost:8080/users/signup
+Accept: application/json
+Content-Type: application/json
+
+{
+  "firstname": "Juan",
+  "lastname": "Perez",
+  "phone": "+59178945098",
+  "email": "jperez@mail.com",
+  "password": "hello_there",
+  "neighbour": "Miraflores",
+  "street": "Av. Busch",
+  "number": "123-A",
+  "reference": "Entrando media cuadra de Av. Busch"
+}
