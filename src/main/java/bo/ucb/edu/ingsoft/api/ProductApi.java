@@ -48,11 +48,11 @@ public class ProductApi {
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
-    public ProductDelete deleteProduct (@RequestBody Product product,ProductDelete productDelete, HttpServletRequest request){
+    public Product deleteProduct (@RequestBody Product product, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
         transactionBl.createTransaction(transaction);
-        ProductDelete productResponse = productBl.deleteProduct(productDelete, transaction, product);
+        Product productResponse = productBl.deleteProduct( transaction, product);
         return productResponse;
     }
 

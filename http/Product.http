@@ -20,7 +20,7 @@ Content-Type: application/json
 {
 
 "price": 12511.5,
-"stock": 5
+"stock": 10
 }
 
 ###
@@ -30,5 +30,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-"txStatus": 0
+
 }
+
+
+##
