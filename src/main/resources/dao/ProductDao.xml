@@ -20,7 +20,7 @@
     </insert>
     <insert id="deleteProduct" parameterType="bo.ucb.edu.ingsoft.dto.ProductDelete">
         UPDATE  product
-        SET tx_status = 0,
+        SET tx_status = #{txStatus},
             tx_id = #{txId}, tx_host= #{txHost}, tx_user_id= #{txUserId}, tx_date= #{txDate}
         WHERE product_id = #{productId}
 

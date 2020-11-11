@@ -30,7 +30,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-
+"txStatus": 0
 }
 
 

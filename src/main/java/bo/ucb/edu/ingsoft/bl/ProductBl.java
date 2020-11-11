@@ -47,8 +47,9 @@ public class ProductBl {
         return productUpdate;
     }
 
-    public Product deleteProduct(  Transaction transaction, Product product, Integer productId){
+    public ProductDelete deleteProduct(ProductDelete productDelete,  Transaction transaction, Product product, Integer productId){
 
+        product.setTxStatus(productDelete.getTxStatus());
         product.setProductId(productId);
         product.setTxDate(transaction.getTxDate());
         product.setTxUserId(transaction.getTxUserId());
@@ -56,7 +57,7 @@ public class ProductBl {
         product.setTxId(transaction.getTxId());
         productDao.deleteProduct(product);
 
-        return product;
+        return productDelete;
     }
 
 

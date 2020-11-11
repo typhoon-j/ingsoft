@@ -44,12 +44,12 @@ public class ProductApi {
         return productResponse;
     }
 
-    @RequestMapping(value = "/{productId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
-    public Product deleteProduct (@RequestBody Product product, HttpServletRequest request, @PathVariable int productId){
+    @RequestMapping(value = "/{productId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ProductDelete deleteProduct (@RequestBody ProductDelete productDelete, Product product, HttpServletRequest request, @PathVariable int productId){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
         transactionBl.createTransaction(transaction);
-        Product productResponse = productBl.deleteProduct( transaction, product, productId);
+        ProductDelete productResponse = productBl.deleteProduct(productDelete, transaction, product, productId);
         return productResponse;
     }
 
