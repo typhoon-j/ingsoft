@@ -14,10 +14,7 @@ import bo.ucb.edu.ingsoft.bl.TransactionBl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -44,14 +41,16 @@ public class UserApi {
         return userResponse;
     }
 
-    @RequestMapping(path = "users/edit/", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserUpdate updateUser(@RequestBody UserUpdate userUpdate, User user, Address address, HttpServletRequest request){
+    @RequestMapping(path = "users/edit/{userId}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE)
+    public UserUpdate updateUser(@RequestBody UserUpdate userUpdate, User user, Address address, HttpServletRequest request, @PathVariable int userId){
+
         Transaction transaction = TransactionUtil.createTransaction(request);
 
         transactionBl.createTransaction(transaction);
-        UserUpdate userResponse = userBl.updateUser(userUpdate, user, transaction, address);
+        UserUpdate userResponse = userBl.updateUser(userUpdate, user, transaction, address, userId);
 
         return userResponse;
+
     }
 
 }

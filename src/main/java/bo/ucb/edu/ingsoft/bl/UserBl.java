@@ -57,7 +57,7 @@ public class UserBl {
         return userCreate;
     }
 
-    public UserUpdate updateUser(UserUpdate userUpdate, User user, Transaction transaction, Address address){
+    public UserUpdate updateUser(UserUpdate userUpdate, User user, Transaction transaction, Address address, Integer userId){
 
         address.setNeighbour(userUpdate.getNeighbour());
         address.setStreet(userUpdate.getStreet());
@@ -69,6 +69,7 @@ public class UserBl {
         address.setTxUserId(transaction.getTxUserId());
         addressDao.update(address);
 
+        user.setUserId(userId);
         user.setFirstname(userUpdate.getFirstname());
         user.setAddressId(address.getAddressId());
         user.setLastname(userUpdate.getLastname());

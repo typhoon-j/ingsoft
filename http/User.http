@@ -17,16 +17,16 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:8080/users/edit/
+PATCH http://localhost:8080/users/edit/1
 Accept: application/json
 Content-Type: application/json
 
 {
-  "firstname": "Pedro",
+  "firstname": "Juan",
   "lastname": "Perez",
   "phone": "+59171232678",
-  "neighbour": "Alto Obrajes",
-  "street": "Av. Del mAESTRO",
-  "number": "123-B",
+  "neighbour": "Obrajes",
+  "street": "Av. 14 de Septiembre",
+  "number": "123-C",
   "reference": "Entrando media cuadra"
 }

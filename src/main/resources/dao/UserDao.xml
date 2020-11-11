@@ -12,6 +12,6 @@
     <update id="update" parameterType="bo.ucb.edu.ingsoft.dto.UserUpdate">
         UPDATE user SET firstname = #{firstname}, lastname = #{lastname}, phone = #{phone},
         tx_date = #{txDate},tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}
-        WHERE user_id = 1 AND tx_status = 1
+        WHERE user_id = #{userId} AND tx_status = 1
     </update>
 </mapper>
