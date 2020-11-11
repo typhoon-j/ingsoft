@@ -9,4 +9,6 @@ public interface AddressDao {
 
     public void create(Address address);
 
+    public void update(Address address);
+
 }

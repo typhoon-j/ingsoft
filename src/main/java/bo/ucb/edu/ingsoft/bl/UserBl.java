@@ -5,6 +5,7 @@ import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dao.AddressDao;
 
 import bo.ucb.edu.ingsoft.dto.UserCreate;
+import bo.ucb.edu.ingsoft.dto.UserUpdate;
 import bo.ucb.edu.ingsoft.dto.Transaction;
 
 import bo.ucb.edu.ingsoft.model.User;
@@ -54,5 +55,31 @@ public class UserBl {
         user.setUserId(getLastId);
 
         return userCreate;
+    }
+
+    public UserUpdate updateUser(UserUpdate userUpdate, User user, Transaction transaction, Address address){
+
+        address.setNeighbour(userUpdate.getNeighbour());
+        address.setStreet(userUpdate.getStreet());
+        address.setNumber(userUpdate.getNumber());
+        address.setReference(userUpdate.getReference());
+        address.setTxDate(transaction.getTxDate());
+        address.setTxId(transaction.getTxId());
+        address.setTxHost(transaction.getTxHost());
+        address.setTxUserId(transaction.getTxUserId());
+        addressDao.update(address);
+
+        user.setFirstname(userUpdate.getFirstname());
+        user.setAddressId(address.getAddressId());
+        user.setLastname(userUpdate.getLastname());
+        user.setPhone(userUpdate.getPhone());
+        user.setTxDate(transaction.getTxDate());
+        user.setTxId(transaction.getTxId());
+        user.setTxHost(transaction.getTxHost());
+        user.setTxUserId(transaction.getTxUserId());
+        userDao.update(user);
+
+        return userUpdate;
+
     }
 }

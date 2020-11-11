@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.ingsoft.dao.UserDao">
+
+    <insert id="create" parameterType="bo.ucb.edu.ingsoft.dto.UserCreate">
+        INSERT INTO user VALUES (null, #{addressId}, #{firstname}, #{lastname}, #{phone}, #{email}, #{password},
+        1, #{txDate}, #{txId}, #{txHost}, #{txUserId})
+    </insert>
+
+    <update id="update" parameterType="bo.ucb.edu.ingsoft.dto.UserUpdate">
+        UPDATE user SET firstname = #{firstname}, lastname = #{lastname}, phone = #{phone},
+        tx_date = #{txDate},tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}
+        WHERE user_id = 1 AND tx_status = 1
+    </update>
+</mapper>

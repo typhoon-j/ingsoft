@@ -1,5 +1,6 @@
 package bo.ucb.edu.ingsoft.api;
 
+import bo.ucb.edu.ingsoft.dto.UserUpdate;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 
 import bo.ucb.edu.ingsoft.model.User;
@@ -39,6 +40,16 @@ public class UserApi {
 
         transactionBl.createTransaction(transaction);
         UserCreate userResponse = userBl.createUser(userCreate, user, transaction, address);
+
+        return userResponse;
+    }
+
+    @RequestMapping(path = "users/edit/", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE)
+    public UserUpdate updateUser(@RequestBody UserUpdate userUpdate, User user, Address address, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+
+        transactionBl.createTransaction(transaction);
+        UserUpdate userResponse = userBl.updateUser(userUpdate, user, transaction, address);
 
         return userResponse;
     }
