@@ -27,4 +27,12 @@
         FROM `order`
         WHERE order_id = #{orderId}
     </select>
+    <insert id="createOrder" parameterType="bo.ucb.edu.ingsoft.dto.MakeOrder">
+        INSERT INTO `order`
+        VALUES (
+            null, #{productId}, #{addressId}, #{userId}, #{date},#{status}, #{state},#{total},
+            1, #{txId},#{txHost}, #{txUserId}, #{txDate}
+        )
+    </insert>
+
 </mapper>

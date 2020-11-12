@@ -19,5 +19,19 @@ Content-Type: application/json
   "number": "123-C",
   "reference": "Entrando media cuadra"
 }
+###
 
+POST http://localhost:8080/orders/order
+Accept: application/json
+Content-Type: application/json
+
+{
+"productId": 1,
+"addressId" : 1,
+"userId": 1,
+"date": "1999-08-22",
+"status": 1,
+"state": 1,
+"total": 190.0
+}
 ###

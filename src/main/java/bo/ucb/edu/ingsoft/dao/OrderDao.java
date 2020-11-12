@@ -13,4 +13,6 @@ public interface OrderDao {
     public void updateAddress(Address address);
 
     public Integer selectAddressId(Integer orderId);
+
+    public void createOrder(Order order);
 }

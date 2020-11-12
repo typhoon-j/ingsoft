@@ -3,6 +3,7 @@ package bo.ucb.edu.ingsoft.bl;
 import bo.ucb.edu.ingsoft.dao.AddressDao;
 import bo.ucb.edu.ingsoft.dao.OrderDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
+import bo.ucb.edu.ingsoft.dto.MakeOrder;
 import bo.ucb.edu.ingsoft.dto.OrderAddress;
 import bo.ucb.edu.ingsoft.dto.OrderState;
 import bo.ucb.edu.ingsoft.dto.Transaction;
@@ -59,6 +60,27 @@ public class OrderBl {
 
 
         return address;
+    }
+    public MakeOrder createOrder (MakeOrder makeOrder,Order order, Transaction transaction){
+        order.setAddressId(makeOrder.getAddressId());
+        order.setProductId(makeOrder.getProductId());
+        order.setUserId(makeOrder.getUserId());
+        order.setDate(makeOrder.getDate());
+        order.setStatus(makeOrder.getStatus());
+        order.setState(makeOrder.getState());
+        order.setTotal(makeOrder.getTotal());
+        order.setTxDate(transaction.getTxDate());
+        order.setTxUserId(transaction.getTxUserId());
+        order.setTxHost(transaction.getTxHost());
+        order.setTxId(transaction.getTxId());
+        orderDao.createOrder(order);
+        Integer getLastId= transactionDao.getLastInsertId();
+        order.setOrderId(getLastId);
+
+        return makeOrder;
+
+
+
     }
 }
 
