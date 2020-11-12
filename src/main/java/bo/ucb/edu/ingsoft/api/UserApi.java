@@ -1,6 +1,5 @@
 package bo.ucb.edu.ingsoft.api;
 
-import bo.ucb.edu.ingsoft.dto.UserOrderGet;
 import bo.ucb.edu.ingsoft.model.Order;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 
@@ -56,12 +55,6 @@ public class UserApi {
 
     }
 
-    @RequestMapping(path = "users/{userId}/orders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<UserOrderGet> findOrderbyUserId(@PathVariable int userId){
-        return userBl.findOrderbyUserId(userId);
-    }
 
-    //@RequestMapping(path = "users/orders/{order_id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    //public
 
 }

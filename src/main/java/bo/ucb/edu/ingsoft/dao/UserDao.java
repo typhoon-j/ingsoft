@@ -1,6 +1,5 @@
 package bo.ucb.edu.ingsoft.dao;
 
-import bo.ucb.edu.ingsoft.dto.UserOrderGet;
 import bo.ucb.edu.ingsoft.model.User;
 import bo.ucb.edu.ingsoft.model.Order;
 
@@ -17,7 +16,6 @@ public interface UserDao {
 
     public Integer selectAddressId(Integer userId);
 
-    public List<UserOrderGet> findOrderbyUserId(Integer userId);
 
 
 }

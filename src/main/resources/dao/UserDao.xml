@@ -21,13 +21,4 @@
         WHERE user_id = #{userId}
     </select>
 
-    <select id="findOrderbyUserId" parameterType="bo.ucb.edu.ingsoft.dto.UserOrderGet">
-        SELECT
-            date.order as date, status.order as status, state.order as state,
-
-        FROM order
-         WHERE
-            user_id = 1
-    </select>
-
 </mapper>

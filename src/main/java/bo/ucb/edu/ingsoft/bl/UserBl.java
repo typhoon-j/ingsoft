@@ -5,7 +5,6 @@ import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dao.AddressDao;
 
 import bo.ucb.edu.ingsoft.dto.UserCreate;
-import bo.ucb.edu.ingsoft.dto.UserOrderGet;
 import bo.ucb.edu.ingsoft.dto.UserUpdate;
 import bo.ucb.edu.ingsoft.dto.Transaction;
 
@@ -91,8 +90,5 @@ public class UserBl {
 
     }
 
-    public List<UserOrderGet> findOrderbyUserId(Integer userId){
-        List<UserOrderGet> user= userDao.findOrderbyUserId(userId);
-        return user;
-    }
+
 }
