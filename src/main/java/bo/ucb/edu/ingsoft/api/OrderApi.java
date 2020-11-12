@@ -31,7 +31,9 @@ public class OrderApi {
     }
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderApi.class);
-
+    /*
+     * Este endpoint no sirve para cambiar el estado de una orden en la base de datos, buscandolo mediante la varible 'orderId'.
+     */
     @RequestMapping(value = "/state/{orderId}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
     public Order updateProduct(@RequestBody Order order, OrderState orderState, HttpServletRequest request, @PathVariable int orderId){
         Transaction transaction = TransactionUtil.createTransaction(request);
@@ -40,6 +42,10 @@ public class OrderApi {
         Order productResponse = orderBl.updateOrderState(order,orderState,transaction, orderId );
         return productResponse;
     }
+
+    /*
+     * Este endpoint no sirve para cambiar la dirrecion de entrega de una orden en la base de datos, buscandolo mediante la varible 'orderId'.
+     */
     @RequestMapping(value = "/address/{orderId}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
     public OrderAddress updateProduct(@RequestBody Order order, OrderAddress orderAddress, Address address, HttpServletRequest request, @PathVariable int orderId){
         Transaction transaction = TransactionUtil.createTransaction(request);
@@ -48,6 +54,10 @@ public class OrderApi {
         OrderAddress productResponse = orderBl.updateOrderAddress(order,orderAddress,address,transaction, orderId );
         return productResponse;
     }
+
+    /*
+     * Este endpoint no sirve para añadir una orden a la base de datos.
+     */
     @RequestMapping (value = "/order", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
     public MakeOrder createOrder  (@RequestBody Order order, MakeOrder makeOrder, HttpServletRequest request){
         Transaction transaction= TransactionUtil.createTransaction(request);

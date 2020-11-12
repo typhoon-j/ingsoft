@@ -60,5 +60,12 @@ public class ProductBl {
         return productDelete;
     }
 
+    public ProductGetId getProductId(Integer productId)
+    {
+
+        return productDao.getProductbyId(productId);
+
+    }
+
 
 }

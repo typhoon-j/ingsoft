@@ -30,8 +30,12 @@ Accept: application/json
 Content-Type: application/json
 
 {
-"txStatus": 1
+"txStatus": 0
 }
 
+
+###
+GET http://localhost:8080/products/1
+Accept: application/json
 
 ###

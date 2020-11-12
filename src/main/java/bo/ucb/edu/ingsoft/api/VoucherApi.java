@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping(value = "/products")
+@RequestMapping(value = "/")
 public class VoucherApi {
     private TransactionBl transactionBl;
     private VoucherBl voucherBl;

@@ -25,6 +25,13 @@
         WHERE product_id = #{productId}
 
     </update>
-
+    <select id="getProductbyId" parameterType="java.lang.Class">
+        SELECT brand as brand,
+               model as model,
+               price as price,
+               description as description
+        FROM product
+        WHERE product_id = #{productId}
+    </select>
 
 </mapper>
