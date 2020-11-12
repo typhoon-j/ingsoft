@@ -3,6 +3,10 @@ package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
 import bo.ucb.edu.ingsoft.bl.VoucherBl;
+import bo.ucb.edu.ingsoft.dto.Transaction;
+import bo.ucb.edu.ingsoft.dto.VoucherDelete;
+import bo.ucb.edu.ingsoft.dto.VoucherUpdate;
+import bo.ucb.edu.ingsoft.model.Voucher;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -21,32 +25,25 @@ public class VoucherApi {
         this.transactionBl = transactionBl;
         this.voucherBl = voucherBl;
     }
-/*
-    @RequestMapping( method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
-    public ProductAdd createProduct(@RequestBody ProductAdd productAdd, Product product, HttpServletRequest request){
-        Transaction transaction = TransactionUtil.createTransaction(request);
 
-        transactionBl.createTransaction(transaction);
-        ProductAdd productResponse = productBl.createProduct(productAdd, product, transaction);
-        return productResponse;
-    }
+
 
     @RequestMapping(value = "/{productId}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
-    public ProductUpdate updateProduct(@RequestBody ProductUpdate productUpdate,Product product, HttpServletRequest request, @PathVariable int productId){
+    public VoucherUpdate updateProduct(@RequestBody VoucherUpdate voucherUpdate, Voucher voucher, HttpServletRequest request, @PathVariable int voucherId){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
         transactionBl.createTransaction(transaction);
-        ProductUpdate productResponse = productBl.updateProduct(productUpdate,transaction, product, productId);
-        return productResponse;
+        VoucherUpdate voucherResponse = voucherBl.updateVoucher(voucherUpdate,transaction, voucher, voucherId);
+        return voucherResponse;
     }
 
-    @RequestMapping(value = "/{productId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ProductDelete deleteProduct (@RequestBody ProductDelete productDelete, Product product, HttpServletRequest request, @PathVariable int productId){
+    @RequestMapping(value = "/{voucherId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public VoucherDelete deleteVoucher (@RequestBody VoucherDelete voucherDelete, Voucher voucher, HttpServletRequest request, @PathVariable int voucherId){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
         transactionBl.createTransaction(transaction);
-        ProductDelete productResponse = productBl.deleteProduct(productDelete, transaction, product, productId);
-        return productResponse;
-    }*/
+        VoucherDelete voucherResponse = voucherBl.deleteVoucher(voucherDelete, transaction, voucher, voucherId);
+        return voucherResponse;
+    }
 
 }

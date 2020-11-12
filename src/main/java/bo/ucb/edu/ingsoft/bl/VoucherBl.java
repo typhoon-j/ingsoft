@@ -4,6 +4,10 @@ package bo.ucb.edu.ingsoft.bl;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dao.VoucherDao;
 
+import bo.ucb.edu.ingsoft.dto.Transaction;
+import bo.ucb.edu.ingsoft.dto.VoucherDelete;
+import bo.ucb.edu.ingsoft.dto.VoucherUpdate;
+import bo.ucb.edu.ingsoft.model.Voucher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,47 +22,32 @@ public class VoucherBl {
         this.transactionDao = transactionDao;
     }
 
-   /* public ProductAdd createProduct(ProductAdd productAdd, Product product, Transaction transaction){
-        product.setBrand(productAdd.getBrand());
-        product.setModel(productAdd.getModel());
-        product.setPrice(productAdd.getPrice());
-        product.setDescription(productAdd.getDescription());
-        product.setStock(productAdd.getStock());
-        product.setTxId(transaction.getTxId());
-        product.setTxHost(transaction.getTxHost());
-        product.setTxUserId(transaction.getTxUserId());
-        product.setTxDate(transaction.getTxDate());
-        productDao.createProduct(product);
-        Integer getLastId = transactionDao.getLastInsertId();
-        product.setProductId(getLastId);
 
-        return productAdd;
-    }
-    public ProductUpdate updateProduct(ProductUpdate productUpdate,Transaction transaction, Product product, Integer productId){
-        product.setProductId(productId);
-        product.setTxDate(transaction.getTxDate());
-        product.setTxUserId(transaction.getTxUserId());
-        product.setTxHost(transaction.getTxHost());
-        product.setTxId(transaction.getTxId());
-        product.setStock(productUpdate.getStock());
-        product.setPrice(productUpdate.getPrice());
-        productDao.updateProduct(product);
 
-        return productUpdate;
+    public VoucherDelete deleteVoucher(VoucherDelete voucherDelete, Transaction transaction, Voucher voucher, Integer voucherId){
+
+        voucher.setTxStatus(voucherDelete.getTxStatus());
+        voucher.setVoucherId(voucherId);
+        voucher.setTxDate(transaction.getTxDate());
+        voucher.setTxUserId(transaction.getTxUserId());
+        voucher.setTxHost(transaction.getTxHost());
+        voucher.setTxId(transaction.getTxId());
+        voucherDao.deleteVoucher(voucher);
+
+        return voucherDelete;
     }
 
-    public ProductDelete deleteProduct(ProductDelete productDelete,  Transaction transaction, Product product, Integer productId){
 
-        product.setTxStatus(productDelete.getTxStatus());
-        product.setProductId(productId);
-        product.setTxDate(transaction.getTxDate());
-        product.setTxUserId(transaction.getTxUserId());
-        product.setTxHost(transaction.getTxHost());
-        product.setTxId(transaction.getTxId());
-        productDao.deleteProduct(product);
+    public VoucherUpdate updateVoucher(VoucherUpdate voucherUpdate, Transaction transaction, Voucher voucher, int voucherId) {
+        voucher.setVoucherId(voucherId);
+        voucher.setTxDate(transaction.getTxDate());
+        voucher.setTxUserId(transaction.getTxUserId());
+        voucher.setTxHost(transaction.getTxHost());
+        voucher.setTxId(transaction.getTxId());
+        voucher.setDate(voucherUpdate.getDate());
+        voucher.setTotal(voucherUpdate.getTotal());
+        voucherDao.updateVoucher(voucher);
 
-        return productDelete;
+        return voucherUpdate;
     }
-
-*/
 }
