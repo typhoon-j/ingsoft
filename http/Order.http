@@ -14,7 +14,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "neighbour": "Alto Obrajes",
+  "neighbour": "Obrajes",
   "street": "Av. 14 de Septiembre",
   "number": "123-C",
   "reference": "Entrando media cuadra"

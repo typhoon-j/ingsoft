@@ -25,8 +25,8 @@ public class Order {
 
     }
 
-    public Integer getOrderId(Integer orderId) {
-        return this.orderId;
+    public Integer getOrderId() {
+        return orderId;
     }
 
     public void setOrderId(Integer orderId) {
