@@ -30,7 +30,7 @@
     <insert id="createOrder" parameterType="bo.ucb.edu.ingsoft.dto.MakeOrder">
         INSERT INTO `order`
         VALUES (
-            null, #{productId}, #{addressId}, #{userId}, #{date},#{status}, #{state},#{total},
+            null, 1, 1, 1, "1999-08-22",1, 1,190.0,
             1, #{txId},#{txHost}, #{txUserId}, #{txDate}
         )
     </insert>
