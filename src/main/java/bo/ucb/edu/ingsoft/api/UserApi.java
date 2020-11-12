@@ -1,12 +1,14 @@
 package bo.ucb.edu.ingsoft.api;
 
-import bo.ucb.edu.ingsoft.dto.UserUpdate;
+import bo.ucb.edu.ingsoft.dto.UserOrderGet;
+import bo.ucb.edu.ingsoft.model.Order;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 
 import bo.ucb.edu.ingsoft.model.User;
 import bo.ucb.edu.ingsoft.model.Address;
 
 import bo.ucb.edu.ingsoft.dto.UserCreate;
+import bo.ucb.edu.ingsoft.dto.UserUpdate;
 import bo.ucb.edu.ingsoft.dto.Transaction;
 
 import bo.ucb.edu.ingsoft.bl.UserBl;
@@ -17,6 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @RequestMapping()
@@ -52,5 +55,13 @@ public class UserApi {
         return userResponse;
 
     }
+
+    @RequestMapping(path = "users/{userId}/orders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<UserOrderGet> findOrderbyUserId(@PathVariable int userId){
+        return userBl.findOrderbyUserId(userId);
+    }
+
+    //@RequestMapping(path = "users/orders/{order_id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    //public
 
 }

@@ -5,14 +5,18 @@ import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dao.AddressDao;
 
 import bo.ucb.edu.ingsoft.dto.UserCreate;
+import bo.ucb.edu.ingsoft.dto.UserOrderGet;
 import bo.ucb.edu.ingsoft.dto.UserUpdate;
 import bo.ucb.edu.ingsoft.dto.Transaction;
 
 import bo.ucb.edu.ingsoft.model.User;
+import bo.ucb.edu.ingsoft.model.Order;
 import bo.ucb.edu.ingsoft.model.Address;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserBl {
@@ -59,8 +63,6 @@ public class UserBl {
 
     public UserUpdate updateUser(UserUpdate userUpdate, User user, Transaction transaction, Address address, Integer userId){
 
-
-
         user.setUserId(userId);
         user.setFirstname(userUpdate.getFirstname());
 
@@ -87,5 +89,10 @@ public class UserBl {
 
         return userUpdate;
 
+    }
+
+    public List<UserOrderGet> findOrderbyUserId(Integer userId){
+        List<UserOrderGet> user= userDao.findOrderbyUserId(userId);
+        return user;
     }
 }

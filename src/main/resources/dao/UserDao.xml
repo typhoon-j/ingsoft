@@ -14,9 +14,20 @@
         tx_date = #{txDate},tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}
         WHERE user_id = #{userId} AND tx_status = 1
     </update>
+
     <select id="selectAddressId" resultType="java.lang.Integer">
         SELECT address_id as addressId
         FROM user
         WHERE user_id = #{userId}
     </select>
+
+    <select id="findOrderbyUserId" parameterType="bo.ucb.edu.ingsoft.dto.UserOrderGet">
+        SELECT
+            date.order as date, status.order as status, state.order as state,
+
+        FROM order
+         WHERE
+            user_id = 1
+    </select>
+
 </mapper>

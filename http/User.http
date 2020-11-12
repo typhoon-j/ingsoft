@@ -9,7 +9,7 @@ Content-Type: application/json
   "phone": "+59178945098",
   "email": "jperez@mail.com",
   "password": "hello_there",
-  "neighbour": "Miraflores",
+  "neighbour": "Alto Obrajes",
   "street": "Av. Busch",
   "number": "123-A",
   "reference": "Entrando media cuadra de Av. Busch"
@@ -17,16 +17,26 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:8080/users/edit/1
+PATCH http://localhost:8080/users/edit/2
 Accept: application/json
 Content-Type: application/json
 
 {
   "firstname": "Juan",
-  "lastname": "Perez",
+  "lastname": "Fernandez",
   "phone": "+59171232678",
   "neighbour": "Obrajes",
   "street": "Av. 14 de Septiembre",
-  "number": "123-C",
+  "number": "123-B",
   "reference": "Entrando media cuadra"
 }
+
+###
+
+GET http://localhost:8080/users/1/orders
+Accept: application/json
+
+###
+
+GET http://localhost:8080/http/users/orders/{{orderId}}
+Accept: application/json

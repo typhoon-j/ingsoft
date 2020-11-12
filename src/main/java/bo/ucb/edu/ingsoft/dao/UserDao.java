@@ -1,10 +1,12 @@
 package bo.ucb.edu.ingsoft.dao;
 
-import bo.ucb.edu.ingsoft.dto.UserCreate;
-
+import bo.ucb.edu.ingsoft.dto.UserOrderGet;
 import bo.ucb.edu.ingsoft.model.User;
+import bo.ucb.edu.ingsoft.model.Order;
 
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 @Mapper
 public interface UserDao {
@@ -14,5 +16,8 @@ public interface UserDao {
     public void update(User user);
 
     public Integer selectAddressId(Integer userId);
+
+    public List<UserOrderGet> findOrderbyUserId(Integer userId);
+
 
 }
