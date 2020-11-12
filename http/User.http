@@ -17,7 +17,7 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:8080/users/edit/2
+PATCH http://localhost:8080/users/edit/1
 Accept: application/json
 Content-Type: application/json
 

@@ -4,9 +4,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "state": 4
+  "state": 5
 }
-
 ###
 
 PATCH http://localhost:8080/orders/address/1
@@ -14,10 +13,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "neighbour": "Obrajes",
+  "neighbour": "Alto Obrajes",
   "street": "Av. 14 de Septiembre",
-  "number": "123-C",
-  "reference": "Entrando media cuadra"
+  "number": "12",
+  "reference": "esquina calle 2"
 }
-
 ###

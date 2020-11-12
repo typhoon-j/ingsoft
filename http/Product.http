@@ -35,13 +35,3 @@ Content-Type: application/json
 
 
 ###
-
-PATCH http://localhost:8080/orders/state/1
-Accept: application/json
-Content-Type: application/json
-
-{
-  "txStatus1": 213
-}
-
-###

@@ -34,7 +34,7 @@ public class OrderBl {
         return order;
     }
 
-    public Address updateOrderAddress (Order order, OrderAddress orderAddress, Address address, Transaction transaction, Integer orderId){
+    public OrderAddress updateOrderAddress (Order order, OrderAddress orderAddress, Address address, Transaction transaction, Integer orderId){
 
         order.setAddressId(address.getAddressId());
         order.setOrderId(orderId);
@@ -47,10 +47,10 @@ public class OrderBl {
         orderAddress.setAddressId(adId);
 
         address.setAddressId(orderAddress.getAddressId());
-       /* address.setNeighbour(orderAddress.getNeighbour());
+        address.setNeighbour(orderAddress.getNeighbour());
         address.setStreet(orderAddress.getStreet());
         address.setNumber(orderAddress.getNumber());
-        address.setReference(orderAddress.getReference());*/
+        address.setReference(orderAddress.getReference());
         address.setTxDate(transaction.getTxDate());
         address.setTxId(transaction.getTxId());
         address.setTxHost(transaction.getTxHost());
@@ -58,7 +58,7 @@ public class OrderBl {
         orderDao.updateAddress(address);
 
 
-        return address;
+        return orderAddress;
     }
 }
 

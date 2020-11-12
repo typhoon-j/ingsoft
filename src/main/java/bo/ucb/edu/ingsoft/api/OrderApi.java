@@ -40,11 +40,11 @@ public class OrderApi {
         return productResponse;
     }
     @RequestMapping(value = "/address/{orderId}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
-    public Address updateProduct(@RequestBody Order order, OrderAddress orderAddress, Address address, HttpServletRequest request, @PathVariable int orderId){
+    public OrderAddress updateProduct(@RequestBody Order order, OrderAddress orderAddress, Address address, HttpServletRequest request, @PathVariable int orderId){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
         transactionBl.createTransaction(transaction);
-        Address productResponse = orderBl.updateOrderAddress(order,orderAddress,address,transaction, orderId );
+        OrderAddress productResponse = orderBl.updateOrderAddress(order,orderAddress,address,transaction, orderId );
         return productResponse;
     }
 }
