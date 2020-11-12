@@ -12,6 +12,6 @@
     <update id="update" parameterType="bo.ucb.edu.ingsoft.dto.UserUpdate">
         UPDATE address SET neighbour = #{neighbour}, street = #{street}, number = #{number}, reference = #{reference},
         tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
-        WHERE address_id = 2 AND tx_status = 1
+        WHERE address_id = #{addressId} AND tx_status = 1
     </update>
 </mapper>

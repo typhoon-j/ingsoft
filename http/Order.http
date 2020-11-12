@@ -1,0 +1,23 @@
+
+PATCH http://localhost:8080/orders/state/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "state": 4
+}
+
+###
+
+PATCH http://localhost:8080/orders/address/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "neighbour": "Alto Obrajes",
+  "street": "Av. 14 de Septiembre",
+  "number": "123-C",
+  "reference": "Entrando media cuadra"
+}
+
+###

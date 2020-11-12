@@ -13,4 +13,6 @@ public interface UserDao {
 
     public void update(User user);
 
+    public Integer selectAddressId(Integer userId);
+
 }

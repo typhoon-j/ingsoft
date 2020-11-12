@@ -59,6 +59,22 @@ public class UserBl {
 
     public UserUpdate updateUser(UserUpdate userUpdate, User user, Transaction transaction, Address address, Integer userId){
 
+
+
+        user.setUserId(userId);
+        user.setFirstname(userUpdate.getFirstname());
+
+        user.setLastname(userUpdate.getLastname());
+        user.setPhone(userUpdate.getPhone());
+        user.setTxDate(transaction.getTxDate());
+        user.setTxId(transaction.getTxId());
+        user.setTxHost(transaction.getTxHost());
+        user.setTxUserId(transaction.getTxUserId());
+        userDao.update(user);
+        Integer adId = userDao.selectAddressId(userId);
+        userUpdate.setAddressId(adId);
+
+        address.setAddressId(userUpdate.getAddressId());
         address.setNeighbour(userUpdate.getNeighbour());
         address.setStreet(userUpdate.getStreet());
         address.setNumber(userUpdate.getNumber());
@@ -68,17 +84,6 @@ public class UserBl {
         address.setTxHost(transaction.getTxHost());
         address.setTxUserId(transaction.getTxUserId());
         addressDao.update(address);
-
-        user.setUserId(userId);
-        user.setFirstname(userUpdate.getFirstname());
-        user.setAddressId(address.getAddressId());
-        user.setLastname(userUpdate.getLastname());
-        user.setPhone(userUpdate.getPhone());
-        user.setTxDate(transaction.getTxDate());
-        user.setTxId(transaction.getTxId());
-        user.setTxHost(transaction.getTxHost());
-        user.setTxUserId(transaction.getTxUserId());
-        userDao.update(user);
 
         return userUpdate;
 
