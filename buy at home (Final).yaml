@@ -459,7 +459,7 @@ paths:
     get:
       tags:
       - order
-      summary: Entraga el comprobante de pago
+      summary: Entrega del comprobante de pago
       description: Eddie Alba
       operationId: getBill
       parameters:
@@ -645,7 +645,7 @@ paths:
       operationId: getContact    
       responses:
         200:
-          description: Pedido recuperado correctamente
+          description: Obtener la informacion de contacto de la empresa
           content:
             application/json:
               schema:
