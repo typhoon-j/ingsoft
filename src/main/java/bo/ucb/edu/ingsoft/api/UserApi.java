@@ -33,6 +33,7 @@ public class UserApi {
         this.transactionBl = transactionBl;
     }
 
+    //RequestMapping POST para la creacion de Usuarios
     @RequestMapping(path = "users/signup", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public UserCreate createUser(@RequestBody UserCreate userCreate, User user, Address address, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
@@ -43,6 +44,8 @@ public class UserApi {
         return userResponse;
     }
 
+    //RequestMapping PATCH para la modificacion de usuarios
+    //PathVariable obtiene el Id del usuario desde el path
     @RequestMapping(path = "users/edit/{userId}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE)
     public UserUpdate updateUser(@RequestBody UserUpdate userUpdate, User user, Address address, HttpServletRequest request, @PathVariable int userId){
 

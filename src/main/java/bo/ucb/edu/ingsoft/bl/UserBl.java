@@ -30,6 +30,7 @@ public class UserBl {
         this.addressDao = addressDao;
     }
 
+    //Creacion de Usuarios conjunta con address
     public UserCreate createUser(UserCreate userCreate, User user, Transaction transaction, Address address){
 
         address.setNeighbour(userCreate.getNeighbour());
@@ -60,6 +61,7 @@ public class UserBl {
         return userCreate;
     }
 
+    //Modificacion de datos de Usuarios conjunta con address
     public UserUpdate updateUser(UserUpdate userUpdate, User user, Transaction transaction, Address address, Integer userId){
 
         user.setUserId(userId);
