@@ -18,4 +18,20 @@ Content-Type: application/json
   "number": "12",
   "reference": "esquina calle 2"
 }
+
+###
+
+POST http://localhost:8080/orders/order
+Accept: application/json
+Content-Type: application/json
+
+{
+"productId": 1,
+"addressId" : 1,
+"userId": 1,
+"date": "1999-08-22",
+"status": 1,
+"state": 1,
+"total": 190.0
+}
 ###

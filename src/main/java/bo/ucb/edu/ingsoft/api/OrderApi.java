@@ -2,6 +2,7 @@ package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.OrderBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
+import bo.ucb.edu.ingsoft.dto.MakeOrder;
 import bo.ucb.edu.ingsoft.dto.OrderAddress;
 import bo.ucb.edu.ingsoft.dto.OrderState;
 import bo.ucb.edu.ingsoft.dto.Transaction;
@@ -46,5 +47,12 @@ public class OrderApi {
         transactionBl.createTransaction(transaction);
         OrderAddress productResponse = orderBl.updateOrderAddress(order,orderAddress,address,transaction, orderId );
         return productResponse;
+    }
+    @RequestMapping (value = "/order", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+    public MakeOrder createOrder  (@RequestBody Order order, MakeOrder makeOrder, HttpServletRequest request){
+        Transaction transaction= TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        MakeOrder orderResponse = orderBl.createOrder(makeOrder,order,transaction);
+        return orderResponse;
     }
 }
