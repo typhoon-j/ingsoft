@@ -64,7 +64,6 @@ public class UserBl {
 
         user.setUserId(userId);
         user.setFirstname(userUpdate.getFirstname());
-
         user.setLastname(userUpdate.getLastname());
         user.setPhone(userUpdate.getPhone());
         user.setTxDate(transaction.getTxDate());
