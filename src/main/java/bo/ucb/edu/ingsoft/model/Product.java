@@ -1,25 +1,26 @@
 package bo.ucb.edu.ingsoft.model;
 
-import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Service
 public class Product {
     private Integer productId;
-    private String brand;
+    private Integer brandId;
+    private String productName;
+    private Integer tagId;
+    private String detail;
     private String model;
     private BigDecimal price;
-    private String description;
     private Integer stock;
+    private String description;
+    private Boolean storeAvailable;
+    private Boolean deliveryAvailable;
+    private String image;
+    private Integer txStatus;
     private Integer txId;
     private String txHost;
-    private Integer txUserId;
+    private Integer TxUserId;
     private Date txDate;
-    private Integer txStatus;
-
-
     public Product(){
 
     }
@@ -32,12 +33,36 @@ public class Product {
         this.productId = productId;
     }
 
-    public String getBrand() {
-        return brand;
+    public Integer getBrandId() {
+        return brandId;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setBrandId(Integer brandId) {
+        this.brandId = brandId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public Integer getTagId() {
+        return tagId;
+    }
+
+    public void setTagId(Integer tagId) {
+        this.tagId = tagId;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 
     public String getModel() {
@@ -56,6 +81,14 @@ public class Product {
         this.price = price;
     }
 
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -64,12 +97,36 @@ public class Product {
         this.description = description;
     }
 
-    public Integer getStock() {
-        return stock;
+    public Boolean getStoreAvailable() {
+        return storeAvailable;
     }
 
-    public void setStock(Integer stock) {
-        this.stock = stock;
+    public void setStoreAvailable(Boolean storeAvailable) {
+        this.storeAvailable = storeAvailable;
+    }
+
+    public Boolean getDeliveryAvailable() {
+        return deliveryAvailable;
+    }
+
+    public void setDeliveryAvailable(Boolean deliveryAvailable) {
+        this.deliveryAvailable = deliveryAvailable;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Integer getTxStatus() {
+        return txStatus;
+    }
+
+    public void setTxStatus(Integer txStatus) {
+        this.txStatus = txStatus;
     }
 
     public Integer getTxId() {
@@ -89,11 +146,11 @@ public class Product {
     }
 
     public Integer getTxUserId() {
-        return txUserId;
+        return TxUserId;
     }
 
     public void setTxUserId(Integer txUserId) {
-        this.txUserId = txUserId;
+        TxUserId = txUserId;
     }
 
     public Date getTxDate() {
@@ -104,28 +161,26 @@ public class Product {
         this.txDate = txDate;
     }
 
-    public Integer getTxStatus() {
-        return txStatus;
-    }
-
-    public void setTxStatus(Integer txStatus) {
-        this.txStatus = txStatus;
-    }
-
     @Override
     public String toString() {
         return "Product{" +
                 "productId=" + productId +
-                ", brand='" + brand + '\'' +
+                ", brandId=" + brandId +
+                ", productName='" + productName + '\'' +
+                ", tagId=" + tagId +
+                ", detail='" + detail + '\'' +
                 ", model='" + model + '\'' +
                 ", price=" + price +
-                ", description='" + description + '\'' +
                 ", stock=" + stock +
+                ", description='" + description + '\'' +
+                ", storeAvailable=" + storeAvailable +
+                ", deliveryAvailable=" + deliveryAvailable +
+                ", image='" + image + '\'' +
+                ", txStatus=" + txStatus +
                 ", txId=" + txId +
                 ", txHost='" + txHost + '\'' +
-                ", txUserId=" + txUserId +
+                ", TxUserId=" + TxUserId +
                 ", txDate=" + txDate +
-                ", txStatus=" + txStatus +
                 '}';
     }
 }

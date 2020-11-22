@@ -3,7 +3,9 @@ package bo.ucb.edu.ingsoft.api;
 import bo.ucb.edu.ingsoft.bl.ProductBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
 import bo.ucb.edu.ingsoft.dto.*;
+import bo.ucb.edu.ingsoft.model.Brand;
 import bo.ucb.edu.ingsoft.model.Product;
+import bo.ucb.edu.ingsoft.model.Tag;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -26,11 +28,11 @@ public class ProductApi {
     * Este Ednpoint sirve para añadir nuevos productos a la base de datos.
      */
     @RequestMapping( method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
-    public ProductAdd createProduct(@RequestBody ProductAdd productAdd, Product product, HttpServletRequest request){
+    public ProductAdd createProduct(@RequestBody Brand brand, Tag tag, ProductAdd productAdd, Product product, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
         transactionBl.createTransaction(transaction);
-        ProductAdd productResponse = productBl.createProduct(productAdd, product, transaction);
+        ProductAdd productResponse = productBl.createProduct(productAdd, product,brand,tag, transaction);
         return productResponse;
     }
     /*

@@ -4,11 +4,18 @@ Accept: application/json
 Content-Type: application/json
 
 {
-"brand": "Alienware",
-"model": "Area 51",
-"price": 15500.5,
-"description": "Laptop gamer de 15,3 pulgadas",
-"stock": 15
+  "productName": "Laptop Alienware",
+  "detail": "procesador i7 9700k",
+  "model": "Area 51",
+  "price": 15500.5,
+  "stock": 15,
+  "description": "Laptop gamer de 15,3 pulgadas",
+  "storeAvailable": true,
+  "deliveryAvailable": true,
+  "image": "imagenDell",
+  "brand": "Alienware",
+  "category": 4
+
 }
 
 ###
