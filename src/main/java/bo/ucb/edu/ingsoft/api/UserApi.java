@@ -1,13 +1,14 @@
 package bo.ucb.edu.ingsoft.api;
 
-import bo.ucb.edu.ingsoft.model.Order;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 
 import bo.ucb.edu.ingsoft.model.User;
 import bo.ucb.edu.ingsoft.model.Address;
+import bo.ucb.edu.ingsoft.model.Order;
 
 import bo.ucb.edu.ingsoft.dto.UserCreate;
 import bo.ucb.edu.ingsoft.dto.UserUpdate;
+import bo.ucb.edu.ingsoft.dto.UserGet;
 import bo.ucb.edu.ingsoft.dto.Transaction;
 
 import bo.ucb.edu.ingsoft.bl.UserBl;
@@ -58,6 +59,11 @@ public class UserApi {
 
     }
 
-
+    //RequestMapping GET para la obtencion de datos del usuario
+    //PathVariable obtiene el Id del usuario
+    @RequestMapping(path = "users/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public UserGet findUserById(HttpServletRequest request, @PathVariable int userId){
+        return userBl.findUserById(userId);
+    }
 
 }
