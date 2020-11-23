@@ -24,17 +24,16 @@ public class ProductApi {
         this.transactionBl = transactionBl;
         this.productBl = productBl;
     }
-    /*
-    * Este Ednpoint sirve para añadir nuevos productos a la base de datos.
-     */
+
     @RequestMapping( method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
-    public ProductAdd createProduct(@RequestBody Brand brand, Tag tag, ProductAdd productAdd, Product product, HttpServletRequest request){
+    public ProductAdd createProduct(@RequestBody ProductAdd productAdd, Product product, Brand brand, Tag tag, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
         transactionBl.createTransaction(transaction);
         ProductAdd productResponse = productBl.createProduct(productAdd, product,brand,tag, transaction);
         return productResponse;
     }
+
     /*
     * Este Endpoint sirve para editar el precio y el stock de un porductos en la base de datos. utilizando como variable de busqueda el 'productId'.
     */

@@ -1,6 +1,5 @@
 package bo.ucb.edu.ingsoft.dao;
 
-import bo.ucb.edu.ingsoft.dto.ProductDelete;
 import bo.ucb.edu.ingsoft.dto.ProductGetId;
 import bo.ucb.edu.ingsoft.model.Brand;
 import bo.ucb.edu.ingsoft.model.Product;
@@ -17,5 +16,6 @@ public interface ProductDao {
     public void updateProduct(Product product);
 
     public void deleteProduct(Product product);
+
     public ProductGetId getProductbyId(Integer productId);
 }

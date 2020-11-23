@@ -6,10 +6,10 @@ Content-Type: application/json
 {
   "productName": "Laptop Alienware",
   "detail": "procesador i7 9700k",
-  "model": "Area 51",
+  "model": "M 17",
   "price": 15500.5,
   "stock": 15,
-  "description": "Laptop gamer de 15,3 pulgadas",
+  "description": "Laptop gamer de 17 pulgadas",
   "storeAvailable": true,
   "deliveryAvailable": true,
   "image": "imagenDell",
