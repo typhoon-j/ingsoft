@@ -6,6 +6,8 @@ import bo.ucb.edu.ingsoft.model.Product;
 import bo.ucb.edu.ingsoft.model.Tag;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface ProductDao {
     public void createBrand(Brand brand);
@@ -17,5 +19,5 @@ public interface ProductDao {
 
     public void deleteProduct(Product product);
 
-    public ProductGetId getProductbyId(Integer productId);
+    public List<ProductGetId>  getProductbyId(Integer productId);
 }

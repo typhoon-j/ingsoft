@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/products")
@@ -60,7 +61,8 @@ public class ProductApi {
     * Este endpoint sirve para mostra un producto. utilizando como variable de busqueda 'productId'.
     */
     @RequestMapping(value = "/{productId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ProductGetId getProductId(HttpServletRequest request,@PathVariable int productId ) {
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<ProductGetId> getProductId(HttpServletRequest request, @PathVariable int productId ) {
         return productBl.getProductId(productId);
     }
 

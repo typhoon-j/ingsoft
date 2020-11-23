@@ -6,37 +6,30 @@ import java.math.BigDecimal;
 
 @Service
 public class ProductGetId {
-   /* private Integer productId;*/
-    private String brand;
-    private String model;
+
+
+    private String image;
+    private Integer stock;
     private BigDecimal price;
-    private String description;
+    private String productName;
     public ProductGetId(){
 
     }
-/*
-    public Integer getProductId() {
-        return productId;
+
+    public String getImage() {
+        return image;
     }
 
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
-*/
-    public String getBrand() {
-        return brand;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public Integer getStock() {
+        return stock;
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
 
     public BigDecimal getPrice() {
@@ -47,22 +40,21 @@ public class ProductGetId {
         this.price = price;
     }
 
-    public String getDescription() {
-        return description;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     @Override
     public String toString() {
         return "ProductGetId{" +
-               /* "productId=" + productId +*/
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
+                "image='" + image + '\'' +
+                ", stock=" + stock +
                 ", price=" + price +
-                ", description='" + description + '\'' +
+                ", productName='" + productName + '\'' +
                 '}';
     }
 }

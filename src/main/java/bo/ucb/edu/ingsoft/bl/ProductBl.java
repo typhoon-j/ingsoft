@@ -10,6 +10,8 @@ import bo.ucb.edu.ingsoft.model.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductBl {
     private ProductDao productDao;
@@ -83,7 +85,7 @@ public class ProductBl {
         return productDelete;
     }
 
-    public ProductGetId getProductId(Integer productId)
+    public List<ProductGetId> getProductId(Integer productId)
     {
 
         return productDao.getProductbyId(productId);

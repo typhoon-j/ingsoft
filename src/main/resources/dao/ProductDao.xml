@@ -40,12 +40,14 @@
 
     </update>
     <select id="getProductbyId" parameterType="int" resultType="bo.ucb.edu.ingsoft.dto.ProductGetId">
-        SELECT brand as brand,
-               model as model,
-               price as price,
-               description as description
-        FROM product
-        WHERE product_id = #{productId}
+        SELECT
+               a.stock as stock,
+               a.price as price,
+               a.image as image,
+               a.product_name as productName
+        FROM product a, tag b, brand c
+        WHERE a.product_id = #{productId} AND a.brand_id = c.brand_id AND a.tag_id=b.tag_id
+        AND a.tx_status=1
     </select>
 
 </mapper>

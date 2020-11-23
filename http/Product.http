@@ -12,7 +12,7 @@ Content-Type: application/json
   "description": "Laptop gamer de 17 pulgadas",
   "storeAvailable": true,
   "deliveryAvailable": true,
-  "image": "imagenDell",
+  "image": "https://i.dell.com/is/image/DellContent//content/dam/global-site-design/product_images/dell_client_products/notebooks/alienware_notebooks/17_area-51m_non-tobii/pdp/laptops-aw-alienware-area-51m-r2-nt-pdp-mod-5.jpg?fmt=jpg",
   "brand": "Alienware",
   "category": 4
 
