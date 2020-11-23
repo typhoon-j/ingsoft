@@ -6,6 +6,7 @@ import bo.ucb.edu.ingsoft.dao.AddressDao;
 
 import bo.ucb.edu.ingsoft.dto.UserCreate;
 import bo.ucb.edu.ingsoft.dto.UserUpdate;
+import bo.ucb.edu.ingsoft.dto.UserGet;
 import bo.ucb.edu.ingsoft.dto.Transaction;
 
 import bo.ucb.edu.ingsoft.model.User;
@@ -33,7 +34,7 @@ public class UserBl {
     //Creacion de Usuarios conjunta con address
     public UserCreate createUser(UserCreate userCreate, User user, Transaction transaction, Address address){
 
-        address.setNeighbour(userCreate.getNeighbour());
+        address.setNeighbourId(userCreate.getNeighbourId());
         address.setStreet(userCreate.getStreet());
         address.setNumber(userCreate.getNumber());
         address.setReference(userCreate.getReference());
@@ -77,7 +78,7 @@ public class UserBl {
         userUpdate.setAddressId(adId);
 
         address.setAddressId(userUpdate.getAddressId());
-        address.setNeighbour(userUpdate.getNeighbour());
+        address.setNeighbourId(userUpdate.getNeighbourId());
         address.setStreet(userUpdate.getStreet());
         address.setNumber(userUpdate.getNumber());
         address.setReference(userUpdate.getReference());
@@ -90,6 +91,9 @@ public class UserBl {
         return userUpdate;
 
     }
-
+    //Obtencion de respuesta GET
+    public UserGet findUserById(Integer userId){
+        return userDao.findUserById(userId);
+    }
 
 }

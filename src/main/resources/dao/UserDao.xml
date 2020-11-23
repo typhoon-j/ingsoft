@@ -21,4 +21,10 @@
         WHERE user_id = #{userId}
     </select>
 
+    <select id="findUserById" resultType="bo.ucb.edu.ingsoft.dto.UserGet">
+        SELECT u.firstname as firstname, u.lastname as lastname, u.email as email, u.phone as phone,
+        n.name as neighbour, a.street as street, a.number as number, a.reference as reference
+        FROM `user` u, `address` a, `neighbour` n WHERE u.user_id=1 AND u.address_id=a.address_id AND a.neighbour_id=n.neighbour_id
+    </select>
+
 </mapper>

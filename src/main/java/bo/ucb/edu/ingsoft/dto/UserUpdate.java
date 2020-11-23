@@ -8,7 +8,7 @@ public class UserUpdate {
     private String firstname;
     private String lastname;
     private String phone;
-    private String neighbour;
+    private Integer neighbourId;
     private String street;
     private String number;
     private String reference;
@@ -33,8 +33,8 @@ public class UserUpdate {
     public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
 
-    public String getNeighbour() { return neighbour; }
-    public void setNeighbour(String neighbour) { this.neighbour = neighbour; }
+    public Integer getNeighbourId() { return neighbourId; }
+    public void setNeighbourId(Integer neighbourId) { this.neighbourId = neighbourId; }
 
     public String getStreet() { return street; }
     public void setStreet(String street) { this.street = street; }
@@ -48,11 +48,11 @@ public class UserUpdate {
     @Override
     public String toString() {
         return "UserUpdate{" +
-                "AddressId=" + addressId +
+                "addressId=" + addressId +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", phone='" + phone + '\'' +
-                ", neighbour='" + neighbour + '\'' +
+                ", neighbourId=" + neighbourId +
                 ", street='" + street + '\'' +
                 ", number='" + number + '\'' +
                 ", reference='" + reference + '\'' +

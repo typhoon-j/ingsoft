@@ -9,7 +9,7 @@ Content-Type: application/json
   "phone": "+59178945098",
   "email": "jperez@mail.com",
   "password": "hello_there",
-  "neighbour": "Alto Obrajes",
+  "neighbourId": 1,
   "street": "Av. Busch",
   "number": "123-A",
   "reference": "Entrando media cuadra de Av. Busch"
@@ -32,3 +32,6 @@ Content-Type: application/json
 }
 
 ###
+
+GET http://localhost:8080/users/1
+Accept: application/json

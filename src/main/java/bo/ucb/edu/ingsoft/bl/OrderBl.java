@@ -48,7 +48,7 @@ public class OrderBl {
         orderAddress.setAddressId(adId);
 
         address.setAddressId(orderAddress.getAddressId());
-        address.setNeighbour(orderAddress.getNeighbour());
+        address.setNeighbourId(orderAddress.getNeighbourId());
         address.setStreet(orderAddress.getStreet());
         address.setNumber(orderAddress.getNumber());
         address.setReference(orderAddress.getReference());
