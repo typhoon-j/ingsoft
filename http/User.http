@@ -5,7 +5,7 @@ Content-Type: application/json
 
 {
   "firstname": "Juan",
-  "lastname": "Camacho",
+  "lastname": "Perez",
   "phone": "+59178945098",
   "email": "jperez@mail.com",
   "password": "hello_there",
@@ -22,10 +22,11 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "firstname": "Juan",
-  "lastname": "Fernandez",
-  "phone": "+59171232678",
-  "neighbour": "Obrajes",
+  "firstname": "Allen",
+  "lastname": "Cordova",
+  "phone": "+59171230898",
+  "email": "allen@mail.com",
+  "neighbourId": 1,
   "street": "Av. 14 de Septiembre",
   "number": "123-B",
   "reference": "Entrando media cuadra"
@@ -38,6 +39,8 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/users/orders/1
+GET http://localhost:8080/users/1/orders
 
 ###
+
+GET http://localhost:8080/users/1/orders/2

@@ -8,6 +8,7 @@ public class UserUpdate {
     private String firstname;
     private String lastname;
     private String phone;
+    private String email;
     private Integer neighbourId;
     private String street;
     private String number;
@@ -19,7 +20,6 @@ public class UserUpdate {
     public Integer getAddressId() {
         return addressId;
     }
-
     public void setAddressId(Integer addressId) {
         this.addressId = addressId;
     }
@@ -32,6 +32,9 @@ public class UserUpdate {
 
     public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
     public Integer getNeighbourId() { return neighbourId; }
     public void setNeighbourId(Integer neighbourId) { this.neighbourId = neighbourId; }
@@ -52,6 +55,7 @@ public class UserUpdate {
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
                 ", neighbourId=" + neighbourId +
                 ", street='" + street + '\'' +
                 ", number='" + number + '\'' +

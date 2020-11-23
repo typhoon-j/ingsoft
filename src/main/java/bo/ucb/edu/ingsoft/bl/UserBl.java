@@ -66,6 +66,7 @@ public class UserBl {
         user.setFirstname(userUpdate.getFirstname());
         user.setLastname(userUpdate.getLastname());
         user.setPhone(userUpdate.getPhone());
+        user.setEmail(userUpdate.getEmail());
         user.setTxDate(transaction.getTxDate());
         user.setTxId(transaction.getTxId());
         user.setTxHost(transaction.getTxHost());
@@ -96,6 +97,11 @@ public class UserBl {
     //Obtencion de respuesta GET de pedidos realizados
     public List<UserOrderGet> findOrdersByUserId(Integer userId){
         return userDao.findOrdersByUserId(userId);
+    }
+
+    //Obtencion de respuesta GET de un pedido realizado por orderId
+    public List<UserGetOrderId> findOrderByOrderId(Integer userId, Integer orderId){
+        return userDao.findOrderByOrderId(userId, orderId);
     }
 
 }

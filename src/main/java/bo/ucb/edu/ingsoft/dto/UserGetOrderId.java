@@ -3,7 +3,7 @@ package bo.ucb.edu.ingsoft.dto;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class UserOrderGet {
+public class UserGetOrderId {
 
     private Integer orderId;
     private String productName;
@@ -14,7 +14,7 @@ public class UserOrderGet {
     private Integer state;
     private BigDecimal total;
 
-    public UserOrderGet(){
+    public UserGetOrderId(){
     }
 
     public Integer getOrderId() { return orderId; }
@@ -43,7 +43,7 @@ public class UserOrderGet {
 
     @Override
     public String toString() {
-        return "UserOrderGet{" +
+        return "UserGetOrderId{" +
                 "orderId=" + orderId +
                 ", productName='" + productName + '\'' +
                 ", neighbour='" + neighbour + '\'' +
