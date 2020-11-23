@@ -37,6 +37,7 @@
      x.total as total
     FROM `order` o, `product` p, `neighbour` n, `address` a, `cart` x, `delivery` d
     WHERE o.user_id=#{userId} AND o.address_id=a.address_id AND o.cart_id=x.cart_id AND o.delivery_id=d.delivery_id
+    AND n.neighbour_id=a.neighbour_id
     </select>
 
     <select id="findOrderByOrderId" resultType="bo.ucb.edu.ingsoft.dto.UserGetOrderId">
