@@ -4,10 +4,7 @@ import bo.ucb.edu.ingsoft.dao.UserDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dao.AddressDao;
 
-import bo.ucb.edu.ingsoft.dto.UserCreate;
-import bo.ucb.edu.ingsoft.dto.UserUpdate;
-import bo.ucb.edu.ingsoft.dto.UserGet;
-import bo.ucb.edu.ingsoft.dto.Transaction;
+import bo.ucb.edu.ingsoft.dto.*;
 
 import bo.ucb.edu.ingsoft.model.User;
 import bo.ucb.edu.ingsoft.model.Order;
@@ -92,8 +89,13 @@ public class UserBl {
 
     }
     //Obtencion de respuesta GET
-    public UserGet findUserById(Integer userId){
+    public List<UserGet> findUserById(Integer userId){
         return userDao.findUserById(userId);
+    }
+
+    //Obtencion de respuesta GET de pedidos realizados
+    public List<UserOrderGet> findOrdersByUserId(Integer userId){
+        return userDao.findOrdersByUserId(userId);
     }
 
 }

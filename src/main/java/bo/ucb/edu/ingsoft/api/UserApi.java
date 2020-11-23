@@ -9,6 +9,7 @@ import bo.ucb.edu.ingsoft.model.Order;
 import bo.ucb.edu.ingsoft.dto.UserCreate;
 import bo.ucb.edu.ingsoft.dto.UserUpdate;
 import bo.ucb.edu.ingsoft.dto.UserGet;
+import bo.ucb.edu.ingsoft.dto.UserOrderGet;
 import bo.ucb.edu.ingsoft.dto.Transaction;
 
 import bo.ucb.edu.ingsoft.bl.UserBl;
@@ -62,8 +63,14 @@ public class UserApi {
     //RequestMapping GET para la obtencion de datos del usuario
     //PathVariable obtiene el Id del usuario
     @RequestMapping(path = "users/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserGet findUserById(HttpServletRequest request, @PathVariable int userId){
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<UserGet> findUserById(HttpServletRequest request, @PathVariable int userId){
         return userBl.findUserById(userId);
     }
 
+    @RequestMapping(path = "users//orders/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<UserOrderGet> findOrdersByUserId(HttpServletRequest request, @PathVariable int userId){
+        return userBl.findOrdersByUserId(userId);
+    }
 }

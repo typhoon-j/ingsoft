@@ -1,5 +1,6 @@
 package bo.ucb.edu.ingsoft.dao;
 
+import bo.ucb.edu.ingsoft.dto.UserOrderGet;
 import bo.ucb.edu.ingsoft.model.User;
 import bo.ucb.edu.ingsoft.dto.UserGet;
 import bo.ucb.edu.ingsoft.model.Order;
@@ -15,7 +16,10 @@ public interface UserDao {
     public void create(User user);
 
     //Get de usuario por Id
-    public UserGet findUserById(Integer userId);
+    public List<UserGet> findUserById(Integer userId);
+
+    //GET de los pedidos realizados por el usuario
+    public List<UserOrderGet> findOrdersByUserId(Integer userId);
 
     //Actualizacion de datos de usuario
     public void update(User user);

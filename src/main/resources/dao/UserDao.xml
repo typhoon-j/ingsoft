@@ -25,6 +25,13 @@
         SELECT u.firstname as firstname, u.lastname as lastname, u.email as email, u.phone as phone,
         n.name as neighbour, a.street as street, a.number as number, a.reference as reference
         FROM `user` u, `address` a, `neighbour` n WHERE u.user_id=1 AND u.address_id=a.address_id AND a.neighbour_id=n.neighbour_id
+        AND u.tx_status=1 AND a.tx_status=1 AND n.tx_status=1
+    </select>
+
+    <select id="findOrdersByUserId" resultType="bo.ucb.edu.ingsoft.dto.UserOrderGet">
+    SELECT o.order_id as orderId, o.date as date, o.state as state
+    FROM `order` o WHERE o.user_id=#{userId}
+
     </select>
 
 </mapper>
