@@ -4,6 +4,7 @@ package bo.ucb.edu.ingsoft.api;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
 import bo.ucb.edu.ingsoft.bl.VoucherBl;
 import bo.ucb.edu.ingsoft.dto.Transaction;
+import bo.ucb.edu.ingsoft.dto.VoucherAdd;
 import bo.ucb.edu.ingsoft.dto.VoucherDelete;
 import bo.ucb.edu.ingsoft.dto.VoucherUpdate;
 import bo.ucb.edu.ingsoft.model.Voucher;
@@ -26,10 +27,17 @@ public class VoucherApi {
         this.voucherBl = voucherBl;
     }
 
+    @RequestMapping( method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
+    public VoucherAdd createVoucher(@RequestBody VoucherAdd voucherAdd, Voucher voucher, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
 
+        transactionBl.createTransaction(transaction);
+        VoucherAdd voucherResponse = voucherBl.createVoucher(voucherAdd, voucher, transaction);
+        return voucherResponse;
+    }
 
-    @RequestMapping(value = "/{productId}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
-    public VoucherUpdate updateProduct(@RequestBody VoucherUpdate voucherUpdate, Voucher voucher, HttpServletRequest request, @PathVariable int voucherId){
+    @RequestMapping(value = "/{voucherId}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
+    public VoucherUpdate updateVoucher(@RequestBody VoucherUpdate voucherUpdate, Voucher voucher, HttpServletRequest request, @PathVariable int voucherId){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
         transactionBl.createTransaction(transaction);
@@ -45,5 +53,6 @@ public class VoucherApi {
         VoucherDelete voucherResponse = voucherBl.deleteVoucher(voucherDelete, transaction, voucher, voucherId);
         return voucherResponse;
     }
+
 
 }

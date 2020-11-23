@@ -5,6 +5,7 @@ import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dao.VoucherDao;
 
 import bo.ucb.edu.ingsoft.dto.Transaction;
+import bo.ucb.edu.ingsoft.dto.VoucherAdd;
 import bo.ucb.edu.ingsoft.dto.VoucherDelete;
 import bo.ucb.edu.ingsoft.dto.VoucherUpdate;
 import bo.ucb.edu.ingsoft.model.Voucher;
@@ -22,7 +23,21 @@ public class VoucherBl {
         this.transactionDao = transactionDao;
     }
 
+    public VoucherAdd createVoucher(VoucherAdd voucherAdd, Voucher voucher, Transaction transaction){
+        voucher.setOrderId(voucherAdd.getOrderId());
+        voucher.setPaymentId(voucherAdd.getPaymentId());
+        voucher.setDate(voucherAdd.getDate());
+        voucher.setTotal(voucherAdd.getTotal());
+        voucher.setTxId(transaction.getTxId());
+        voucher.setTxHost(transaction.getTxHost());
+        voucher.setTxUserId(transaction.getTxUserId());
+        voucher.setTxDate(transaction.getTxDate());
+        voucherDao.createVoucher(voucher);
+        Integer getLastId = transactionDao.getLastInsertId();
+        voucher.setVoucherId(getLastId);
 
+        return voucherAdd;
+    }
 
     public VoucherDelete deleteVoucher(VoucherDelete voucherDelete, Transaction transaction, Voucher voucher, Integer voucherId){
 
