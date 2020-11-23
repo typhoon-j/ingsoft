@@ -6,15 +6,15 @@ Content-Type: application/json
 {
   "productName": "Laptop Alienware",
   "detail": "procesador i7 9700k",
-  "model": "M 17",
+  "model": "Area 51",
   "price": 15500.5,
   "stock": 15,
-  "description": "Laptop gamer de 17 pulgadas",
+  "description": "Laptop gamer de 15,3 pulgadas",
   "storeAvailable": true,
   "deliveryAvailable": true,
   "image": "https://i.dell.com/is/image/DellContent//content/dam/global-site-design/product_images/dell_client_products/notebooks/alienware_notebooks/17_area-51m_non-tobii/pdp/laptops-aw-alienware-area-51m-r2-nt-pdp-mod-5.jpg?fmt=jpg",
-  "brand": "Alienware",
-  "category": 4
+  "brandId": 1,
+  "tagId": 2
 
 }
 
@@ -25,9 +25,10 @@ Accept: application/json
 Content-Type: application/json
 
 {
-
 "price": 12511.5,
-"stock": 100
+"stock": 100,
+"storeAvailable": false,
+"deliveryAvailable": false
 }
 
 ###

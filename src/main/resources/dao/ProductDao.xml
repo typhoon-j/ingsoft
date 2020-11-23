@@ -4,18 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bo.ucb.edu.ingsoft.dao.ProductDao">
 
-    <insert id="createBrand" parameterType="bo.ucb.edu.ingsoft.model.Brand">
-        INSERT INTO brand
-        VALUES (
-            null, #{name}, 1,#{txId},#{txHost}, #{txUserId}, #{txDate}
-        )
-    </insert>
-    <insert id="createTag" parameterType="bo.ucb.edu.ingsoft.model.Tag">
-        INSERT INTO tag
-        VALUES (
-            null, #{category}, 1, #{txId},#{txHost}, #{txUserId}, #{txDate}
-        )
-    </insert>
+
     <insert id="createProduct" parameterType="bo.ucb.edu.ingsoft.model.Product">
         INSERT INTO product
         VALUES (
@@ -25,9 +14,9 @@
         )
     </insert>
 
-    <update id="updateProduct" parameterType="bo.ucb.edu.ingsoft.dto.ProductUpdate">
+    <update id="updateProduct" parameterType="bo.ucb.edu.ingsoft.model.Product">
         UPDATE product
-        SET price = #{price}, stock = #{stock},
+        SET price = #{price}, stock = #{stock}, store_available = #{storeAvailable},delivery_available = #{deliveryAvailable},
             tx_id = #{txId}, tx_host= #{txHost}, tx_user_id= #{txUserId}, tx_date= #{txDate}
         WHERE product_id = #{productId}
         AND tx_status=1

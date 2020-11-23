@@ -3,9 +3,9 @@ package bo.ucb.edu.ingsoft.dto;
 import java.math.BigDecimal;
 
 public class ProductAdd {
-    private String brand;
+    private Integer brandId;
     private String productName;
-    private Integer category;
+    private Integer tagId;
     private String detail;
     private String model;
     private BigDecimal price;
@@ -15,12 +15,12 @@ public class ProductAdd {
     private Boolean deliveryAvailable;
     private String image;
 
-    public String getBrand() {
-        return brand;
+    public Integer getBrandId() {
+        return brandId;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setBrandId(Integer brandId) {
+        this.brandId = brandId;
     }
 
     public String getProductName() {
@@ -31,12 +31,12 @@ public class ProductAdd {
         this.productName = productName;
     }
 
-    public Integer getCategory() {
-        return category;
+    public Integer getTagId() {
+        return tagId;
     }
 
-    public void setCategory(Integer category) {
-        this.category = category;
+    public void setTagId(Integer tagId) {
+        this.tagId = tagId;
     }
 
     public String getDetail() {
@@ -106,9 +106,9 @@ public class ProductAdd {
     @Override
     public String toString() {
         return "ProductAdd{" +
-                "brand='" + brand + '\'' +
+                "brandId=" + brandId +
                 ", productName='" + productName + '\'' +
-                ", category=" + category +
+                ", tagId=" + tagId +
                 ", detail='" + detail + '\'' +
                 ", model='" + model + '\'' +
                 ", price=" + price +

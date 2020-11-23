@@ -27,6 +27,7 @@ public class ProductApi {
     }
 
     @RequestMapping( method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
     public ProductAdd createProduct(@RequestBody ProductAdd productAdd, Product product, Brand brand, Tag tag, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
@@ -38,7 +39,8 @@ public class ProductApi {
     /*
     * Este Endpoint sirve para editar el precio y el stock de un porductos en la base de datos. utilizando como variable de busqueda el 'productId'.
     */
-    @RequestMapping(value = "/{productId}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/{productId}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
     public ProductUpdate updateProduct(@RequestBody ProductUpdate productUpdate,Product product, HttpServletRequest request, @PathVariable int productId){
         Transaction transaction = TransactionUtil.createTransaction(request);
 

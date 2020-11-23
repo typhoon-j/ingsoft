@@ -25,24 +25,8 @@ public class ProductBl {
 
     public ProductAdd createProduct(ProductAdd productAdd, Product product, Brand brand, Tag tag, Transaction transaction){
 
-        brand.setName(productAdd.getBrand());
-        brand.setTxId(transaction.getTxId());
-        brand.setTxHost(transaction.getTxHost());
-        brand.setTxUserId(transaction.getTxUserId());
-        brand.setTxDate(transaction.getTxDate());
-        productDao.createBrand(brand);
-        Integer brandId = transactionDao.getLastInsertId();
-        product.setBrandId(brandId);
-
-        tag.setCategory(productAdd.getCategory());
-        tag.setTxId(transaction.getTxId());
-        tag.setTxHost(transaction.getTxHost());
-        tag.setTxUserId(transaction.getTxUserId());
-        tag.setTxDate(transaction.getTxDate());
-        productDao.createTag(tag);
-        Integer tagId = transactionDao.getLastInsertId();
-        product.setTagId(tagId);
-
+        product.setBrandId(productAdd.getBrandId());
+        product.setTagId(productAdd.getTagId());
         product.setProductName(productAdd.getProductName());
         product.setDetail(productAdd.getDetail());
         product.setModel(productAdd.getModel());
@@ -67,6 +51,8 @@ public class ProductBl {
         product.setTxId(transaction.getTxId());
         product.setStock(productUpdate.getStock());
         product.setPrice(productUpdate.getPrice());
+        product.setStoreAvailable(productUpdate.getStoreAvailable());
+        product.setDeliveryAvailable(productUpdate.getDeliveryAvailable());
         productDao.updateProduct(product);
 
         return productUpdate;

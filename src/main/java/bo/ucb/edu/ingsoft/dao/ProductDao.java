@@ -10,9 +10,7 @@ import java.util.List;
 
 @Mapper
 public interface ProductDao {
-    public void createBrand(Brand brand);
 
-    public void createTag(Tag tag);
     public void createProduct(Product product);
 
     public void updateProduct(Product product);
