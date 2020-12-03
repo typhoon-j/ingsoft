@@ -78,5 +78,9 @@ public class ProductBl {
 
     }
 
+    public List<ProductsGetAdmin> getProducts()
+    {
+        return productDao.getProducts();
+    }
 
 }

@@ -5,22 +5,21 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Service
+
 public class Order {
     private Integer orderId;
-    private Integer productId;
     private Integer addressId;
     private Integer userId;
+    private Integer cartId;
+    private Integer deliveryId;
     private Date date;
     private Integer status;
     private Integer state;
-    private BigDecimal total;
+    private Integer txStatus;
     private Integer txId;
     private String txHost;
     private Integer txUserId;
     private Date txDate;
-    private Integer txStatus;
-
     public Order(){
 
     }
@@ -31,14 +30,6 @@ public class Order {
 
     public void setOrderId(Integer orderId) {
         this.orderId = orderId;
-    }
-
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
     }
 
     public Integer getAddressId() {
@@ -55,6 +46,22 @@ public class Order {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Integer getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(Integer cartId) {
+        this.cartId = cartId;
+    }
+
+    public Integer getDeliveryId() {
+        return deliveryId;
+    }
+
+    public void setDeliveryId(Integer deliveryId) {
+        this.deliveryId = deliveryId;
     }
 
     public Date getDate() {
@@ -81,12 +88,12 @@ public class Order {
         this.state = state;
     }
 
-    public BigDecimal getTotal() {
-        return total;
+    public Integer getTxStatus() {
+        return txStatus;
     }
 
-    public void setTotal(BigDecimal total) {
-        this.total = total;
+    public void setTxStatus(Integer txStatus) {
+        this.txStatus = txStatus;
     }
 
     public Integer getTxId() {
@@ -121,30 +128,22 @@ public class Order {
         this.txDate = txDate;
     }
 
-    public Integer getTxStatus() {
-        return txStatus;
-    }
-
-    public void setTxStatus(Integer txStatus) {
-        this.txStatus = txStatus;
-    }
-
     @Override
     public String toString() {
         return "Order{" +
                 "orderId=" + orderId +
-                ", productId=" + productId +
                 ", addressId=" + addressId +
                 ", userId=" + userId +
+                ", cartId=" + cartId +
+                ", deliveryId=" + deliveryId +
                 ", date=" + date +
                 ", status=" + status +
                 ", state=" + state +
-                ", total=" + total +
+                ", txStatus=" + txStatus +
                 ", txId=" + txId +
                 ", txHost='" + txHost + '\'' +
                 ", txUserId=" + txUserId +
                 ", txDate=" + txDate +
-                ", txStatus=" + txStatus +
                 '}';
     }
 }

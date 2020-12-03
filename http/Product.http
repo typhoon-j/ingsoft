@@ -4,15 +4,15 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "productName": "Laptop Alienware",
-  "detail": "procesador i7 9700k",
-  "model": "Area 51",
-  "price": 15500.5,
-  "stock": 15,
+  "productName": "Laptop Alienware M15",
+  "detail": "procesador i7 8750k",
+  "model": "M 15",
+  "price": 12500.5,
+  "stock": 20,
   "description": "Laptop gamer de 15,3 pulgadas",
   "storeAvailable": true,
   "deliveryAvailable": true,
-  "image": "https://i.dell.com/is/image/DellContent//content/dam/global-site-design/product_images/dell_client_products/notebooks/alienware_notebooks/17_area-51m_non-tobii/pdp/laptops-aw-alienware-area-51m-r2-nt-pdp-mod-5.jpg?fmt=jpg",
+  "image": "https://i.dell.com/is/image/DellContent//content/dam/global-site-design/product_images/dell_client_products/notebooks/alienware_notebooks/m15_r1/pdp/laptop-alienware-m15-pdp-7.jpg?fmt=jpg",
   "brandId": 1,
   "tagId": 2
 
@@ -20,7 +20,7 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:8080/products/1
+PATCH http://localhost:8080/products/8
 Accept: application/json
 Content-Type: application/json
 
@@ -33,17 +33,21 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8080/products/1
+DELETE http://localhost:8080/products/8
 Accept: application/json
 Content-Type: application/json
 
 {
-"txStatus": 0
+"txStatus": 1
 }
 
 
 ###
 GET http://localhost:8080/products/1
+Accept: application/json
+
+###
+GET http://localhost:8080/products
 Accept: application/json
 
 ###

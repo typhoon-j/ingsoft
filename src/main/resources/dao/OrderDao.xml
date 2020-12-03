@@ -5,9 +5,10 @@
 <mapper namespace="bo.ucb.edu.ingsoft.dao.OrderDao">
 
     <update id="updateAddress" parameterType="bo.ucb.edu.ingsoft.model.Address">
-        UPDATE address SET neighbour = "Alto Obrajes", street = "Av 14 de septiembre", number = "12", reference = "esquina calle 2",
-        tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
-        WHERE address_id = #{addressId} AND tx_status = 1
+        UPDATE address a `order` b
+        SET a.neighbour_id = #{neighbourId}, a.street = #{street}, a.number = #{number}, a.reference = #{reference},
+        a.tx_id = #{txId}, a.tx_host = #{txHost}, a.tx_user_id = #{txUserId}, a.tx_date = #{txDate}
+        WHERE b.order_id = #{orderId} AND b.address_id = a.address_id AND b.tx_status = 1
     </update>
     <update id="updateOrderState" parameterType="bo.ucb.edu.ingsoft.model.Order">
         UPDATE `order`

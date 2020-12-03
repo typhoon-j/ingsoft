@@ -8,12 +8,12 @@ Content-Type: application/json
 }
 ###
 
-PATCH http://localhost:8080/orders/address/1
+PATCH http://localhost:8080/orders/address/4
 Accept: application/json
 Content-Type: application/json
 
 {
-  "neighbour": "Alto Obrajes",
+  "neighbourId": 1,
   "street": "Av. 14 de Septiembre",
   "number": "12",
   "reference": "esquina calle 2"

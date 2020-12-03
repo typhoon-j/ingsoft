@@ -68,4 +68,9 @@ public class ProductApi {
         return productBl.getProductId(productId);
     }
 
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<ProductsGetAdmin> getProdducts(HttpServletRequest request){
+        return productBl.getProducts();
+    }
 }

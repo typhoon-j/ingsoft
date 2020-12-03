@@ -10,7 +10,7 @@ public interface OrderDao {
 
     public void updateOrderAddress(Order order);
 
-    public void updateAddress(Address address);
+    public void updateAddress(Address address, Integer orderId);
 
     public Integer selectAddressId(Integer orderId);
 

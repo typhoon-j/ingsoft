@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 
 @Service
-public class ProductGetId {
+public class ProductsGetAdmin {
 
     private Integer productId;
     private String image;
@@ -14,8 +14,9 @@ public class ProductGetId {
     private String productName;
     private String model;
     private String Description;
-    private String Detail;
-    public ProductGetId(){
+    private String category;
+    private String brand;
+    public ProductsGetAdmin(){
 
     }
 
@@ -75,17 +76,25 @@ public class ProductGetId {
         Description = description;
     }
 
-    public String getDetail() {
-        return Detail;
+    public String getCategory() {
+        return category;
     }
 
-    public void setDetail(String detail) {
-        Detail = detail;
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     @Override
     public String toString() {
-        return "ProductGetId{" +
+        return "ProductsGetAdmin{" +
                 "productId=" + productId +
                 ", image='" + image + '\'' +
                 ", stock=" + stock +
@@ -93,7 +102,8 @@ public class ProductGetId {
                 ", productName='" + productName + '\'' +
                 ", model='" + model + '\'' +
                 ", Description='" + Description + '\'' +
-                ", Detail='" + Detail + '\'' +
+                ", category='" + category + '\'' +
+                ", brand='" + brand + '\'' +
                 '}';
     }
 }

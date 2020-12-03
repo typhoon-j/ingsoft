@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OrderAddress {
-    private Integer addressId;
     private Integer neighbourId;
     private String street;
     private String number;
@@ -13,9 +12,13 @@ public class OrderAddress {
 
     }
 
-    public Integer getNeighbourId() { return neighbourId; }
+    public Integer getNeighbourId() {
+        return neighbourId;
+    }
 
-    public void setNeighbourId(Integer neighbourId) { this.neighbourId = neighbourId; }
+    public void setNeighbourId(Integer neighbourId) {
+        this.neighbourId = neighbourId;
+    }
 
     public String getStreet() {
         return street;
@@ -41,19 +44,10 @@ public class OrderAddress {
         this.reference = reference;
     }
 
-    public Integer getAddressId() {
-        return addressId;
-    }
-
-    public void setAddressId(Integer addressId) {
-        this.addressId = addressId;
-    }
-
     @Override
     public String toString() {
         return "OrderAddress{" +
-                "addressId=" + addressId +
-                ", neighbourId=" + neighbourId +
+                "neighbourId=" + neighbourId +
                 ", street='" + street + '\'' +
                 ", number='" + number + '\'' +
                 ", reference='" + reference + '\'' +

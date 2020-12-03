@@ -25,7 +25,7 @@ public class OrderBl {
         this.addressDao = addressDao;
     }
     public Order updateOrderState (Order order, OrderState orderState, Transaction transaction, Integer orderId){
-       /* order.setState(orderState.getState());*/
+        order.setState(orderState.getState());
         order.setOrderId(orderId);
         order.setTxDate(transaction.getTxDate());
         order.setTxUserId(transaction.getTxUserId());
@@ -37,17 +37,6 @@ public class OrderBl {
 
     public OrderAddress updateOrderAddress (Order order, OrderAddress orderAddress, Address address, Transaction transaction, Integer orderId){
 
-        order.setAddressId(address.getAddressId());
-        order.setOrderId(orderId);
-        order.setTxDate(transaction.getTxDate());
-        order.setTxUserId(transaction.getTxUserId());
-        order.setTxHost(transaction.getTxHost());
-        order.setTxId(transaction.getTxId());
-        orderDao.updateOrderAddress(order);
-        Integer adId = orderDao.selectAddressId(orderId);
-        orderAddress.setAddressId(adId);
-
-        address.setAddressId(orderAddress.getAddressId());
         address.setNeighbourId(orderAddress.getNeighbourId());
         address.setStreet(orderAddress.getStreet());
         address.setNumber(orderAddress.getNumber());
@@ -56,12 +45,12 @@ public class OrderBl {
         address.setTxId(transaction.getTxId());
         address.setTxHost(transaction.getTxHost());
         address.setTxUserId(transaction.getTxUserId());
-        orderDao.updateAddress(address);
+        orderDao.updateAddress(address, orderId);
 
 
         return orderAddress;
     }
-    public MakeOrder createOrder (MakeOrder makeOrder,Order order, Transaction transaction){
+   /* public MakeOrder createOrder (MakeOrder makeOrder,Order order, Transaction transaction){
         order.setAddressId(makeOrder.getAddressId());
         order.setProductId(makeOrder.getProductId());
         order.setUserId(makeOrder.getUserId());
@@ -80,7 +69,6 @@ public class OrderBl {
         return makeOrder;
 
 
-
-    }
+    }*/
 }
 

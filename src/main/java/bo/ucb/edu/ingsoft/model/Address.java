@@ -13,10 +13,10 @@ public class Address {
     private String number;
     private String reference;
     private Integer txStatus;
-    private Date txDate;
     private Integer txId;
     private String txHost;
     private Integer txUserId;
+    private Date txDate;
 
     public Address(){
     }
@@ -96,10 +96,10 @@ public class Address {
                 ", number='" + number + '\'' +
                 ", reference='" + reference + '\'' +
                 ", txStatus=" + txStatus +
-                ", txDate=" + txDate +
                 ", txId=" + txId +
                 ", txHost='" + txHost + '\'' +
                 ", txUserId=" + txUserId +
+                ", txDate=" + txDate +
                 '}';
     }
 }

@@ -30,13 +30,32 @@
     </update>
     <select id="getProductbyId" parameterType="int" resultType="bo.ucb.edu.ingsoft.dto.ProductGetId">
         SELECT
+               a.product_id as productId,
                a.stock as stock,
                a.price as price,
                a.image as image,
-               a.product_name as productName
+               a.product_name as productName,
+               a.model as model,
+               a.description as description,
+               a.detail as detail
         FROM product a, tag b, brand c
         WHERE a.product_id = #{productId} AND a.brand_id = c.brand_id AND a.tag_id=b.tag_id
         AND a.tx_status=1
     </select>
-
+    <select id="getProducts" resultType="bo.ucb.edu.ingsoft.dto.ProductsGetAdmin">
+        SELECT
+               a.product_id as productId,
+               a.stock as stock,
+               a.price as price,
+               a.image as image,
+               a.product_name as productName,
+               a.model as model,
+               a.description as description,
+               a.detail as detail,
+               b.category as category,
+               c.name as brand
+        FROM product a, tag b, brand c
+        WHERE  a.brand_id = c.brand_id AND a.tag_id=b.tag_id
+        AND a.tx_status=1
+    </select>
 </mapper>
