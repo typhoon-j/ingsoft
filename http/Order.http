@@ -26,12 +26,12 @@ Accept: application/json
 Content-Type: application/json
 
 {
-"productId": 1,
-"addressId" : 1,
-"userId": 1,
-"date": "1999-08-22",
-"status": 1,
-"state": 1,
-"total": 190.0
+  "addressId" : 1,
+  "userId": 1,
+  "cartId": 1,
+  "deliveryId": 1,
+  "date": "1999-08-22",
+  "status": 1,
+  "state": 1
 }
 ###

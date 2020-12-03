@@ -28,13 +28,18 @@ public class PaymentBl {
 
     public PaymentAdd createPayment(PaymentAdd paymentAdd, Transaction transaction)
     {
-        paymentAdd.setFirstname(paymentAdd.getFirstname());
-        paymentAdd.setLastname(paymentAdd.getLastname());
-        paymentAdd.setCardNumber(paymentAdd.getCardNumber());
-        paymentAdd.setSecurityCode(paymentAdd.getSecurityCode());
-        paymentAdd.setDateExpire(paymentAdd.getDateExpire());
-
-
+        Payment payment = new Payment();
+        payment.setFirstname(paymentAdd.getFirstname());
+        payment.setLastname(paymentAdd.getLastname());
+        payment.setCardNumber(paymentAdd.getCardNumber());
+        payment.setSecurityCode(paymentAdd.getSecurityCode());
+        payment.setDateExpire(paymentAdd.getDateExpire());
+        payment.setTxId(transaction.getTxId());
+        payment.setTxHost(transaction.getTxHost());
+        payment.setTxUserId(transaction.getTxUserId());
+        payment.setTxDate(transaction.getTxDate());
+        paymentDao.createPayment(payment);
+        payment.setPaymentId(transactionDao.getLastInsertId());
 
 
         return paymentAdd;

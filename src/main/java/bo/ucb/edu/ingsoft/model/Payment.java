@@ -11,11 +11,11 @@ public class Payment {
     private Integer cardNumber;
     private Integer securityCode;
     private Date dateExpire;
+    private Integer txStatus;
     private Integer txId;
     private String txHost;
     private Integer txUserId;
     private Date txDate;
-    private Integer txStatus;
 
     public Payment() {
 

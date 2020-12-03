@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="bo.ucb.edu.ingsoft.dao.AddressDao">
+<mapper namespace="bo.ucb.edu.ingsoft.dao.PaymentDao">
 
-    <insert id="createPayment" parameterType="bo.ucb.edu.ingsoft.dto.PaymentAdd">
+    <insert id="createPayment" parameterType="bo.ucb.edu.ingsoft.model.Payment">
         INSERT INTO payment VALUES (null, #{firstname}, #{lastname}, #{cardNumber}, #{securityCode},#{dateExpire},
         1, #{txId}, #{txHost}, #{txUserId}, #{txDate})
     </insert>

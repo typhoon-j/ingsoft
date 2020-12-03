@@ -55,14 +55,13 @@ public class OrderApi {
         return productResponse;
     }
 
-    /*
-     * Este endpoint no sirve para añadir una orden a la base de datos.
-     */
-   /* @RequestMapping (value = "/order", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
-    public MakeOrder createOrder  (@RequestBody Order order, MakeOrder makeOrder, HttpServletRequest request){
+
+
+    @RequestMapping (value = "/order", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+    public MakeOrder createOrder  (@RequestBody  MakeOrder makeOrder, HttpServletRequest request){
         Transaction transaction= TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
-        MakeOrder orderResponse = orderBl.createOrder(makeOrder,order,transaction);
+        MakeOrder orderResponse = orderBl.createOrder(makeOrder,transaction);
         return orderResponse;
-    }*/
+    }
 }

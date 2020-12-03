@@ -1,14 +1,12 @@
 package bo.ucb.edu.ingsoft.api;
 
-import bo.ucb.edu.ingsoft.bl.PaymentBl;
+import bo.ucb.edu.ingsoft.bl.CartDetailBl;
 import bo.ucb.edu.ingsoft.bl.ProductBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
-import bo.ucb.edu.ingsoft.dto.PaymentAdd;
+import bo.ucb.edu.ingsoft.dto.CartDetailAdd;
 import bo.ucb.edu.ingsoft.dto.ProductAdd;
 import bo.ucb.edu.ingsoft.dto.Transaction;
-import bo.ucb.edu.ingsoft.model.Brand;
-import bo.ucb.edu.ingsoft.model.Product;
-import bo.ucb.edu.ingsoft.model.Tag;
+import bo.ucb.edu.ingsoft.model.*;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -17,24 +15,27 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping(value = "/payment")
-public class PaymentApi {
+@RequestMapping(value = "/cart")
+public class CartApi {
     private TransactionBl transactionBl;
-    private PaymentBl paymentBl;
+    private CartDetailBl cartDetailBl;
+
 
     @Autowired
-    public PaymentApi(TransactionBl transactionBl,PaymentBl paymentBl){
+    public CartApi(TransactionBl transactionBl,CartDetailBl cartDetailBl){
         this.transactionBl = transactionBl;
-        this.paymentBl = paymentBl;
+        this.cartDetailBl = cartDetailBl;
     }
 
     @RequestMapping( method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
-    @CrossOrigin(origins = "http://localhost:4200")
-    public PaymentAdd createPayment(@RequestBody PaymentAdd paymentAdd, HttpServletRequest request){
+    //@CrossOrigin(origins = "http://localhost:4200")
+    public CartDetailAdd createCartDetail(@RequestBody CartDetailAdd cartDetailAdd, CartDetail cartDetail, Product product, Cart cart, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
         transactionBl.createTransaction(transaction);
-        PaymentAdd paymentResponse = paymentBl.createPayment(paymentAdd,transaction);
-        return paymentResponse;
+        CartDetailAdd cartResponse = cartDetailBl.createCartDetail(cartDetailAdd,cartDetail,product,cart, transaction);
+        return cartResponse;
     }
+
+
 }

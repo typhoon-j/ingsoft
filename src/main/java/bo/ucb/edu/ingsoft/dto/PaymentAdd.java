@@ -1,5 +1,6 @@
 package bo.ucb.edu.ingsoft.dto;
 
+import java.sql.Time;
 import java.util.Date;
 
 public class PaymentAdd {
@@ -7,7 +8,7 @@ public class PaymentAdd {
     private String lastname;
     private Integer cardNumber;
     private Integer securityCode;
-    private Date dateExpire;
+    private Time dateExpire;
 
     public PaymentAdd() {
     }
@@ -48,7 +49,7 @@ public class PaymentAdd {
         return dateExpire;
     }
 
-    public void setDateExpire(Date dateExpire) {
+    public void setDateExpire(Time dateExpire) {
         this.dateExpire = dateExpire;
     }
 

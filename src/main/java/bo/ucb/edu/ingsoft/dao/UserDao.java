@@ -4,6 +4,7 @@ import bo.ucb.edu.ingsoft.dto.UserGetOrderId;
 import bo.ucb.edu.ingsoft.dto.UserOrderGet;
 import bo.ucb.edu.ingsoft.model.User;
 import bo.ucb.edu.ingsoft.dto.UserGet;
+import bo.ucb.edu.ingsoft.dto.NieghbourGet;
 import bo.ucb.edu.ingsoft.model.Order;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -24,6 +25,9 @@ public interface UserDao {
 
     //GET de los pedidos realizados por el usuario
     public List<UserGetOrderId> findOrderByOrderId(Integer userId,Integer orderId);
+
+    //GET datos de nieghbour
+    public List<NieghbourGet> findNeighbour();
 
     //Actualizacion de datos de usuario
     public void update(User user);

@@ -31,20 +31,24 @@
 
     <select id="findOrdersByUserId" resultType="bo.ucb.edu.ingsoft.dto.UserOrderGet">
     SELECT o.order_id as orderId, o.date as date, o.state as state,
-     p.product_name as productName,
      n.name as neighbour,
      a.street as street, a.number as number,
      x.total as total
-    FROM `order` o, `product` p, `neighbour` n, `address` a, `cart` x, `delivery` d
+    FROM `order` o, `neighbour` n, `address` a, `cart` x, `delivery` d
     WHERE o.user_id=#{userId} AND o.address_id=a.address_id AND o.cart_id=x.cart_id AND o.delivery_id=d.delivery_id
     AND n.neighbour_id=a.neighbour_id
     </select>
 
     <select id="findOrderByOrderId" resultType="bo.ucb.edu.ingsoft.dto.UserGetOrderId">
-    SELECT o.order_id as orderId, o.date as date, o.state as state, x.total as total,
-    n.name as neighbour, a.street as street, a.number as number, p.product_name as productName
-    FROM `order` o, `address` a, `neighbour` n, `product` p, `cart` x, `cart_detail` xd
+    SELECT o.order_id as orderId, o.date as date, o.state as state, x.total as total, p.image as image,
+    n.name as neighbour, a.street as street, a.number as number, p.product_name as productName, xd.qtty as qtty, p.price as price
+    FROM `order` o, `address` a, `neighbour` n, `product` p, `cart` x, `cart_detail` xd, `delivery` d
     WHERE o.user_id=#{userId} AND o.order_id=#{orderId} AND o.cart_id=x.cart_id AND xd.cart_id=x.cart_id
+    AND a.address_id=o.address_id AND d.delivery_id=o.delivery_id
     </select>
 
+    <select id="findNeighbour" resultType="bo.ucb.edu.ingsoft.dto.NieghbourGet">
+        SELECT neighbour_id as neighbourId, name as name
+        FROM `neighbour`
+    </select>
 </mapper>

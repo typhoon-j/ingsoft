@@ -44,3 +44,7 @@ GET http://localhost:8080/users/1/orders
 ###
 
 GET http://localhost:8080/users/1/orders/2
+
+###
+
+GET http://localhost:8080/neighbour
