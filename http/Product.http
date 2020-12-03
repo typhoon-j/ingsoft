@@ -4,7 +4,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "productName": "Laptop Samsumg",
+  "productName": "Laptop Lenovo",
   "detail": "procesador i7 9700k",
   "model": "Area 51",
   "price": 15500.5,

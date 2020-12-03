@@ -86,6 +86,7 @@ public class CartDetail {
 
     public void setTxDate(Date txDate) {
         this.txDate = txDate;
+
     }
 
     @Override

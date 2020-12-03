@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface PaymentDao {
-    public void createPayment(PaymentAdd payment);
+    public void createPayment(Payment payment);
 }

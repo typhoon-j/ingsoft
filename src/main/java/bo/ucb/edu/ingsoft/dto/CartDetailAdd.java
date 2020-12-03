@@ -31,4 +31,13 @@ public class CartDetailAdd {
     public void setQtty(Integer qtty) {
         this.qtty = qtty;
     }
+
+    @Override
+    public String toString() {
+        return "CartDetailAdd{" +
+                "cartId=" + cartId +
+                ", productId=" + productId +
+                ", qtty=" + qtty +
+                '}';
+    }
 }

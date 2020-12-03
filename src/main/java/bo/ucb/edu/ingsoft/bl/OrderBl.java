@@ -9,14 +9,20 @@ import bo.ucb.edu.ingsoft.dto.OrderState;
 import bo.ucb.edu.ingsoft.dto.Transaction;
 import bo.ucb.edu.ingsoft.model.Address;
 import bo.ucb.edu.ingsoft.model.Order;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.logging.LoggerConfiguration;
 import org.springframework.stereotype.Service;
+
+
 
 @Service
 public class OrderBl {
     private OrderDao orderDao;
     private TransactionDao transactionDao;
     private AddressDao addressDao;
+    private static final Logger LOGGER= LoggerFactory.getLogger(OrderBl.class);
 
     @Autowired
     public OrderBl(OrderDao orderDao,TransactionDao transactionDao, AddressDao addressDao){
@@ -61,20 +67,21 @@ public class OrderBl {
 
         return orderAddress;
     }
-    public MakeOrder createOrder (MakeOrder makeOrder,Order order, Transaction transaction){
-        order.setAddressId(makeOrder.getAddressId());
-        order.setUserId(makeOrder.getUserId());
-        order.setCartId(makeOrder.getCartId());
-        order.setDeliveryId(makeOrder.getDeliveryId());
-        order.setStatus(makeOrder.getStatus());
-        order.setState(makeOrder.getState());
-        order.setTxDate(transaction.getTxDate());
-        order.setTxUserId(transaction.getTxUserId());
-        order.setTxHost(transaction.getTxHost());
-        order.setTxId(transaction.getTxId());
-        orderDao.createOrder(order);
+    public MakeOrder createOrder (MakeOrder makeOrder, Transaction transaction){
+        LOGGER.info(makeOrder.getAddressId().toString());
+        Order order1= new Order();
+        order1.setAddressId(makeOrder.getAddressId());
+        order1.setUserId(makeOrder.getUserId());
+        order1.setCartId(makeOrder.getCartId());
+        order1.setDeliveryId(makeOrder.getDeliveryId());
+        order1.setStatus(makeOrder.getStatus());
+        order1.setState(makeOrder.getState());
+        order1.setTxDate(transaction.getTxDate());
+        order1.setTxUserId(transaction.getTxUserId());
+        order1.setTxHost(transaction.getTxHost());
+        order1.setTxId(transaction.getTxId());
+        orderDao.createOrder(order1);
         Integer getLastId= transactionDao.getLastInsertId();
-        order.setOrderId(getLastId);
 
         return makeOrder;
 
