@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 public class PaymentBl {
 
     private PaymentDao paymentDao;
+    private Payment payment;
     private TransactionDao transactionDao;
 
 
@@ -28,13 +29,17 @@ public class PaymentBl {
 
     public PaymentAdd createPayment(PaymentAdd paymentAdd, Transaction transaction)
     {
-        paymentAdd.setFirstname(paymentAdd.getFirstname());
-        paymentAdd.setLastname(paymentAdd.getLastname());
-        paymentAdd.setCardNumber(paymentAdd.getCardNumber());
-        paymentAdd.setSecurityCode(paymentAdd.getSecurityCode());
-        paymentAdd.setDateExpire(paymentAdd.getDateExpire());
-
-
+        payment.setFirstname(paymentAdd.getFirstname());
+        payment.setLastname(paymentAdd.getLastname());
+        payment.setCardNumber(paymentAdd.getCardNumber());
+        payment.setSecurityCode(paymentAdd.getSecurityCode());
+        payment.setDateExpire(paymentAdd.getDateExpire());
+        payment.setTxId(transaction.getTxId());
+        payment.setTxHost(transaction.getTxHost());
+        payment.setTxUserId(transaction.getTxUserId());
+        payment.setTxDate(transaction.getTxDate());
+        paymentDao.createPayment(paymentAdd);
+        payment.setPaymentId(transactionDao.getLastInsertId());
 
 
         return paymentAdd;
