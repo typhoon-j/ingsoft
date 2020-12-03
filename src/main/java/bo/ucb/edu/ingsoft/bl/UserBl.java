@@ -104,4 +104,8 @@ public class UserBl {
         return userDao.findOrderByOrderId(userId, orderId);
     }
 
+    //Obtencion de respuesta GET de las zonas disponibles
+    public List<NieghbourGet> findNeighbour(){
+        return userDao.findNeighbour();
+    }
 }

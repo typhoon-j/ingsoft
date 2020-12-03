@@ -76,4 +76,10 @@ public class UserApi {
     public List<UserGetOrderId> findOrderByOrderId(HttpServletRequest request, @PathVariable int orderId, @PathVariable int userId){
         return userBl.findOrderByOrderId(userId, orderId);
     }
+
+    @RequestMapping(path = "neighbour", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<NieghbourGet> findNeighbour(HttpServletRequest request){
+        return userBl.findNeighbour();
+    }
 }

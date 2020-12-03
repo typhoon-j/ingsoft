@@ -4,7 +4,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "firstname": "Fabricio",
+  "firstname": "Juan",
   "lastname": "Perez",
   "phone": "+59178945098",
   "email": "jperez@mail.com",
@@ -44,3 +44,7 @@ GET http://localhost:8080/users/1/orders
 ###
 
 GET http://localhost:8080/users/1/orders/2
+
+###
+
+GET http://localhost:8080/neighbour

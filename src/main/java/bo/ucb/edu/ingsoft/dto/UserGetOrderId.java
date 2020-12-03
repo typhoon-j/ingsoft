@@ -6,7 +6,9 @@ import java.util.Date;
 public class UserGetOrderId {
 
     private Integer orderId;
-    private String productName;
+    private String image;
+    private Integer qtty;
+    private BigDecimal price;
     private String neighbour;
     private String street;
     private String number;
@@ -20,8 +22,14 @@ public class UserGetOrderId {
     public Integer getOrderId() { return orderId; }
     public void setOrderId(Integer orderId) { this.orderId = orderId; }
 
-    public String getProductName() { return productName; }
-    public void setProductName(String productName) { this.productName = productName; }
+    public String getImage() { return image; }
+    public void setImage(String image) { this.image = image; }
+
+    public Integer getQtty() { return qtty; }
+    public void setQtty(Integer qtty) { this.qtty = qtty; }
+
+    public BigDecimal getPrice() { return price; }
+    public void setPrice(BigDecimal price) { this.price = price; }
 
     public String getNeighbour() { return neighbour; }
     public void setNeighbour(String neighbour) { this.neighbour = neighbour; }
@@ -45,7 +53,9 @@ public class UserGetOrderId {
     public String toString() {
         return "UserGetOrderId{" +
                 "orderId=" + orderId +
-                ", productName='" + productName + '\'' +
+                ", image='" + image + '\'' +
+                ", qtty=" + qtty +
+                ", price=" + price +
                 ", neighbour='" + neighbour + '\'' +
                 ", street='" + street + '\'' +
                 ", number='" + number + '\'' +
