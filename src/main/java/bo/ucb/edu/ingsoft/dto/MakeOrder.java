@@ -1,28 +1,21 @@
 package bo.ucb.edu.ingsoft.dto;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class MakeOrder {
-    private Integer productId;
     private Integer addressId;
     private Integer userId;
-    private Date date;
+    private Integer cartId;
+    private Integer deliveryId;
+    private Date  date;
     private Integer status;
     private Integer state;
-    private BigDecimal total;
 
     public MakeOrder() {
     }
 
-
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
 
     public Integer getAddressId() {
         return addressId;
@@ -38,6 +31,22 @@ public class MakeOrder {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Integer getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(Integer cartId) {
+        this.cartId = cartId;
+    }
+
+    public Integer getDeliveryId() {
+        return deliveryId;
+    }
+
+    public void setDeliveryId(Integer deliveryId) {
+        this.deliveryId = deliveryId;
     }
 
     public Date getDate() {
@@ -64,24 +73,16 @@ public class MakeOrder {
         this.state = state;
     }
 
-    public BigDecimal getTotal() {
-        return total;
-    }
-
-    public void setTotal(BigDecimal total) {
-        this.total = total;
-    }
-
     @Override
     public String toString() {
         return "MakeOrder{" +
-                "productId=" + productId +
-                ", addressId=" + addressId +
+                "addressId=" + addressId +
                 ", userId=" + userId +
+                ", cartId=" + cartId +
+                ", deliveryId=" + deliveryId +
                 ", date=" + date +
                 ", status=" + status +
                 ", state=" + state +
-                ", total=" + total +
                 '}';
     }
 }

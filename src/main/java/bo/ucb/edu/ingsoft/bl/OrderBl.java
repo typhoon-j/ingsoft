@@ -63,12 +63,11 @@ public class OrderBl {
     }
     public MakeOrder createOrder (MakeOrder makeOrder,Order order, Transaction transaction){
         order.setAddressId(makeOrder.getAddressId());
-        order.setProductId(makeOrder.getProductId());
         order.setUserId(makeOrder.getUserId());
-        order.setDate(makeOrder.getDate());
+        order.setCartId(makeOrder.getCartId());
+        order.setDeliveryId(makeOrder.getDeliveryId());
         order.setStatus(makeOrder.getStatus());
         order.setState(makeOrder.getState());
-        order.setTotal(makeOrder.getTotal());
         order.setTxDate(transaction.getTxDate());
         order.setTxUserId(transaction.getTxUserId());
         order.setTxHost(transaction.getTxHost());

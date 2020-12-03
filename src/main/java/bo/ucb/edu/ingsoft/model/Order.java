@@ -2,19 +2,20 @@ package bo.ucb.edu.ingsoft.model;
 
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Service
 public class Order {
     private Integer orderId;
-    private Integer productId;
     private Integer addressId;
     private Integer userId;
+    private Integer cartId;
+    private Integer deliveryId;
     private Date date;
     private Integer status;
     private Integer state;
-    private BigDecimal total;
     private Integer txId;
     private String txHost;
     private Integer txUserId;
@@ -33,14 +34,6 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
-
     public Integer getAddressId() {
         return addressId;
     }
@@ -55,6 +48,22 @@ public class Order {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Integer getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(Integer cartId) {
+        this.cartId = cartId;
+    }
+
+    public Integer getDeliveryId() {
+        return deliveryId;
+    }
+
+    public void setDeliveryId(Integer deliveryId) {
+        this.deliveryId = deliveryId;
     }
 
     public Date getDate() {
@@ -79,14 +88,6 @@ public class Order {
 
     public void setState(Integer state) {
         this.state = state;
-    }
-
-    public BigDecimal getTotal() {
-        return total;
-    }
-
-    public void setTotal(BigDecimal total) {
-        this.total = total;
     }
 
     public Integer getTxId() {
@@ -133,13 +134,13 @@ public class Order {
     public String toString() {
         return "Order{" +
                 "orderId=" + orderId +
-                ", productId=" + productId +
                 ", addressId=" + addressId +
                 ", userId=" + userId +
+                ", cartId=" + cartId +
+                ", deliveryId=" + deliveryId +
                 ", date=" + date +
                 ", status=" + status +
                 ", state=" + state +
-                ", total=" + total +
                 ", txId=" + txId +
                 ", txHost='" + txHost + '\'' +
                 ", txUserId=" + txUserId +
