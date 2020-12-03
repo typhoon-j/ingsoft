@@ -8,6 +8,7 @@ public class UserGetOrderId {
     private Integer orderId;
     private String image;
     private Integer qtty;
+    private  String productName;
     private BigDecimal price;
     private String neighbour;
     private String street;
@@ -17,6 +18,14 @@ public class UserGetOrderId {
     private BigDecimal total;
 
     public UserGetOrderId(){
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public Integer getOrderId() { return orderId; }
@@ -55,6 +64,7 @@ public class UserGetOrderId {
                 "orderId=" + orderId +
                 ", image='" + image + '\'' +
                 ", qtty=" + qtty +
+                ", productName='" + productName + '\'' +
                 ", price=" + price +
                 ", neighbour='" + neighbour + '\'' +
                 ", street='" + street + '\'' +
