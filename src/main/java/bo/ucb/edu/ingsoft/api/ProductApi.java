@@ -73,4 +73,16 @@ public class ProductApi {
     public List<ProductsGetAdmin> getProdducts(HttpServletRequest request){
         return productBl.getProducts();
     }
+
+    @RequestMapping(value = "/category/{categoryId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<ProductCategory> getProductCategory(HttpServletRequest request, @PathVariable int categoryId ) {
+        return productBl.getProductCategory(categoryId);
+    }
+
+    @RequestMapping(value = "/detail/{productId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<ProductGetDetail> getProductDetail(HttpServletRequest request, @PathVariable int productId ) {
+        return productBl.getProductDeatil(productId);
+    }
 }

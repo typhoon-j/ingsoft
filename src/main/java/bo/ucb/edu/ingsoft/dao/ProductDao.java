@@ -1,5 +1,7 @@
 package bo.ucb.edu.ingsoft.dao;
 
+import bo.ucb.edu.ingsoft.dto.ProductCategory;
+import bo.ucb.edu.ingsoft.dto.ProductGetDetail;
 import bo.ucb.edu.ingsoft.dto.ProductGetId;
 import bo.ucb.edu.ingsoft.dto.ProductsGetAdmin;
 import bo.ucb.edu.ingsoft.model.Brand;
@@ -18,7 +20,11 @@ public interface ProductDao {
 
     public void deleteProduct(Product product);
 
+    public List<ProductCategory> getProductCategory(Integer categoryId);
+
     public List<ProductGetId>  getProductbyId(Integer productId);
 
     public List<ProductsGetAdmin> getProducts ();
+
+    public List<ProductGetDetail> getProductDetail(Integer productId);
 }

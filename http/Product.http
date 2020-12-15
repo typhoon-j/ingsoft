@@ -51,3 +51,11 @@ GET http://localhost:8080/products
 Accept: application/json
 
 ###
+GET http://localhost:8080/products/category/2
+Accept: application/json
+
+###
+GET http://localhost:8080/products/detail/2
+Accept: application/json
+
+###

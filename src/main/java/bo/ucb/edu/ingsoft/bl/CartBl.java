@@ -1,24 +1,28 @@
 package bo.ucb.edu.ingsoft.bl;
 
-import bo.ucb.edu.ingsoft.dao.CartDetailDao;
+import bo.ucb.edu.ingsoft.dao.CartDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dto.CartDetailAdd;
+import bo.ucb.edu.ingsoft.dto.CartGetDetail;
 import bo.ucb.edu.ingsoft.dto.Transaction;
 import bo.ucb.edu.ingsoft.model.Cart;
 import bo.ucb.edu.ingsoft.model.CartDetail;
 import bo.ucb.edu.ingsoft.model.Product;
+import org.apache.catalina.LifecycleState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class CartDetailBl {
-    private CartDetailDao cartDetailDao;
+public class CartBl {
+    private CartDao cartDao;
     private TransactionDao transactionDao;
 
 
     @Autowired
-    public CartDetailBl(CartDetailDao cartDetailDao, TransactionDao transactionDao){
-        this.cartDetailDao = cartDetailDao;
+    public CartBl(CartDao cartDao, TransactionDao transactionDao){
+        this.cartDao = cartDao;
         this.transactionDao = transactionDao;
     }
 
@@ -32,8 +36,11 @@ public class CartDetailBl {
        cartDetail.setTxUserId(transaction.getTxUserId());
        cartDetail.setTxDate(transaction.getTxDate());
 
-       cartDetailDao.createCartDetail(cartDetail);
+       cartDao.createCartDetail(cartDetail);
 
         return cartDetailAdd;
+    }
+    public List<CartGetDetail> getCartDetail(){
+        return cartDao.getCartDetail();
     }
 }

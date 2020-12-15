@@ -83,4 +83,13 @@ public class ProductBl {
         return productDao.getProducts();
     }
 
+    public List<ProductCategory> getProductCategory(Integer categoryId){
+        return  productDao.getProductCategory(categoryId);
+    }
+
+    public List<ProductGetDetail> getProductDeatil(Integer productId)
+    {
+        return  productDao.getProductDetail(productId);
+    }
+
 }

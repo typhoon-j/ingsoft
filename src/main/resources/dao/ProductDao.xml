@@ -42,6 +42,19 @@
         WHERE a.product_id = #{productId} AND a.brand_id = c.brand_id AND a.tag_id=b.tag_id
         AND a.tx_status=1
     </select>
+    <select id="getProductCategory" parameterType="int" resultType="bo.ucb.edu.ingsoft.dto.ProductCategory">
+        SELECT
+               a.product_id as productId,
+               a.tag_id as tagId,
+               a.price as price,
+               a.image as image,
+               a.product_name as productName,
+               b.category as category,
+               a.description as description
+        FROM product a, tag b
+        WHERE a.tag_id = #{categoryId} AND b.tag_id = a.tag_id
+
+    </select>
     <select id="getProducts" resultType="bo.ucb.edu.ingsoft.dto.ProductsGetAdmin">
         SELECT
                a.product_id as productId,
@@ -56,6 +69,21 @@
                c.name as brand
         FROM product a, tag b, brand c
         WHERE  a.brand_id = c.brand_id AND a.tag_id=b.tag_id
+        AND a.tx_status=1
+    </select>
+    <select id="getProductDetail" parameterType="int" resultType="bo.ucb.edu.ingsoft.dto.ProductGetDetail">
+        SELECT
+               a.product_id as productId,
+               b.category as category,
+               a.price as price,
+               a.image as image,
+               a.product_name as productName,
+               a.model as model,
+               c.name as brand,
+               a.description as description,
+               a.detail as detail
+        FROM product a, tag b, brand c
+        WHERE a.product_id = #{productId} AND a.brand_id = c.brand_id AND a.tag_id=b.tag_id
         AND a.tx_status=1
     </select>
 </mapper>
