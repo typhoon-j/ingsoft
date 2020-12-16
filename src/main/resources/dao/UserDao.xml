@@ -43,8 +43,8 @@
     SELECT o.order_id as orderId, o.date as date, o.state as state, x.total as total, p.image as image,
     n.name as neighbour, a.street as street, a.number as number, p.product_name as productName, xd.qtty as qtty, p.price as price
     FROM `order` o, `address` a, `neighbour` n, `product` p, `cart` x, `cart_detail` xd, `delivery` d
-    WHERE o.user_id=#{userId} AND o.order_id=#{orderId} AND o.cart_id=x.cart_id AND xd.cart_id=x.cart_id
-    AND a.address_id=o.address_id AND d.delivery_id=o.delivery_id AND xd.product_id=p.product_id
+    WHERE o.user_id=#{userId} AND o.order_id=#{orderId} AND o.cart_id=x.cart_id AND xd.cart_id=x.cart_id AND o.cart_id=xd.cart_id
+    AND a.address_id=o.address_id AND d.delivery_id=o.delivery_id AND xd.product_id=p.product_id AND n.neighbour_id=a.neighbour_id
     </select>
 
     <select id="findNeighbour" resultType="bo.ucb.edu.ingsoft.dto.NieghbourGet">
