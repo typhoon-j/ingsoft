@@ -4,7 +4,7 @@ COMMIT;
 
 -- cart
 START TRANSACTION;
-INSERT INTO cart VALUES(null, true, 750.0, 1, last_insert_id(), "127.0.0.1", 1, now());
+INSERT INTO cart VALUES(null, true, 0, 1, last_insert_id(), "127.0.0.1", 1, now());
 COMMIT;
 
 -- cart_detail

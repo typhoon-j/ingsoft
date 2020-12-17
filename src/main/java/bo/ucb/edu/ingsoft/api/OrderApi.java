@@ -34,6 +34,7 @@ public class OrderApi {
      * Este endpoint no sirve para cambiar el estado de una orden en la base de datos, buscandolo mediante la varible 'orderId'.
      */
     @RequestMapping(value = "/state/{orderId}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
     public Order updateProduct(@RequestBody Order order, OrderState orderState, HttpServletRequest request, @PathVariable int orderId){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
@@ -46,6 +47,7 @@ public class OrderApi {
      * Este endpoint no sirve para cambiar la dirrecion de entrega de una orden en la base de datos, buscandolo mediante la varible 'orderId'.
      */
     @RequestMapping(value = "/address/{orderId}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
     public OrderAddress updateProduct(@RequestBody Order order, OrderAddress orderAddress, Address address, HttpServletRequest request, @PathVariable int orderId){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
@@ -57,6 +59,7 @@ public class OrderApi {
 
 
     @RequestMapping ( method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
     public OrderAdd createOrder  (@RequestBody OrderAdd orderAdd, Address address, Order order, HttpServletRequest request){
         Transaction transaction= TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
