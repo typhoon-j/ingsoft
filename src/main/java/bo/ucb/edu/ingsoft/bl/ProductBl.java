@@ -91,5 +91,8 @@ public class ProductBl {
     {
         return  productDao.getProductDetail(productId);
     }
+    public List<BrandGet> getBrand(){
+        return productDao.getBrand();
+    }
 
 }

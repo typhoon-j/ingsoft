@@ -88,4 +88,8 @@
         WHERE a.product_id = #{productId} AND a.brand_id = c.brand_id AND a.tag_id=b.tag_id
         AND a.tx_status=1
     </select>
+    <select id="getBrand" resultType="bo.ucb.edu.ingsoft.dto.BrandGet">
+        SELECT brand_id as brandId, name as name
+        FROM brand
+    </select>
 </mapper>

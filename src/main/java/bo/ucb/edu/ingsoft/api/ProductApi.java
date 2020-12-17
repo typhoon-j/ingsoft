@@ -85,4 +85,10 @@ public class ProductApi {
     public List<ProductGetDetail> getProductDetail(HttpServletRequest request, @PathVariable int productId ) {
         return productBl.getProductDeatil(productId);
     }
+
+    @RequestMapping(value = "/brand", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<BrandGet> getBrand(HttpServletRequest request) {
+        return productBl.getBrand();
+    }
 }
