@@ -81,7 +81,9 @@
                a.model as model,
                c.name as brand,
                a.description as description,
-               a.detail as detail
+               a.detail as detail,
+               a.store_available as storeAvailable,
+               a.delivery_available as deliveryAvailable
         FROM product a, tag b, brand c
         WHERE a.product_id = #{productId} AND a.brand_id = c.brand_id AND a.tag_id=b.tag_id
         AND a.tx_status=1

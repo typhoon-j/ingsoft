@@ -12,6 +12,8 @@ public class ProductGetDetail {
     private String Detail;
     private String category;
     private String brand;
+    private Boolean storeAvailable;
+    private Boolean deliveryAvailable;
     public ProductGetDetail(){
 
     }
@@ -88,6 +90,22 @@ public class ProductGetDetail {
         this.brand = brand;
     }
 
+    public Boolean getStoreAvailable() {
+        return storeAvailable;
+    }
+
+    public void setStoreAvailable(Boolean storeAvailable) {
+        this.storeAvailable = storeAvailable;
+    }
+
+    public Boolean getDeliveryAvailable() {
+        return deliveryAvailable;
+    }
+
+    public void setDeliveryAvailable(Boolean deliveryAvailable) {
+        this.deliveryAvailable = deliveryAvailable;
+    }
+
     @Override
     public String toString() {
         return "ProductGetDetail{" +
@@ -100,6 +118,8 @@ public class ProductGetDetail {
                 ", Detail='" + Detail + '\'' +
                 ", category='" + category + '\'' +
                 ", brand='" + brand + '\'' +
+                ", storeAvailable=" + storeAvailable +
+                ", deliveryAvailable=" + deliveryAvailable +
                 '}';
     }
 }
