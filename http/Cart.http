@@ -7,7 +7,7 @@ Content-Type: application/json
 {
   "qtty": 4,
   "cartId": 1,
-  "productId": 4
+  "productId": 1
 
 }
 
