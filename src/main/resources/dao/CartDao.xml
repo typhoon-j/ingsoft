@@ -9,6 +9,13 @@
         1, #{txId}, #{txHost}, #{txUserId}, #{txDate})
     </insert>
 
+    <select id="getCart" parameterType="int" resultType="bo.ucb.edu.ingsoft.dto.CartGet">
+        SELECT
+               a.total as total
+        FROM cart a
+        WHERE  a.cart_id=#{cartId}
+
+    </select>
     <select id="getCartDetail" resultType="bo.ucb.edu.ingsoft.dto.CartGetDetail">
         SELECT
                a.price as price,

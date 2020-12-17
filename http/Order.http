@@ -21,16 +21,16 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:8080/orders/order
+POST http://localhost:8080/orders
 Accept: application/json
 Content-Type: application/json
 
 {
-  "addressId" : 1,
-  "userId": 1,
+  "neighbourId": 1,
+  "street": "Av. 14 de Septiembre",
+  "number": "12",
+  "reference": "esquina calle 2",
   "cartId": 1,
-  "deliveryId": 1,
-  "date": "1999-08-22",
   "status": 1,
   "state": 1
 }

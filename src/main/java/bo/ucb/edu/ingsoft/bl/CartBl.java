@@ -3,6 +3,7 @@ package bo.ucb.edu.ingsoft.bl;
 import bo.ucb.edu.ingsoft.dao.CartDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dto.CartDetailAdd;
+import bo.ucb.edu.ingsoft.dto.CartGet;
 import bo.ucb.edu.ingsoft.dto.CartGetDetail;
 import bo.ucb.edu.ingsoft.dto.Transaction;
 import bo.ucb.edu.ingsoft.model.Cart;
@@ -42,5 +43,9 @@ public class CartBl {
     }
     public List<CartGetDetail> getCartDetail(){
         return cartDao.getCartDetail();
+    }
+
+    public List<CartGet> getCart(Integer cartId){
+        return  cartDao.getCart(cartId);
     }
 }

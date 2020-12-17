@@ -2,10 +2,7 @@ package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.CartBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
-import bo.ucb.edu.ingsoft.dto.CartDetailAdd;
-import bo.ucb.edu.ingsoft.dto.CartGetDetail;
-import bo.ucb.edu.ingsoft.dto.ProductCategory;
-import bo.ucb.edu.ingsoft.dto.Transaction;
+import bo.ucb.edu.ingsoft.dto.*;
 import bo.ucb.edu.ingsoft.model.*;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +26,7 @@ public class CartApi {
     }
 
     @RequestMapping(value = "/cartDetail", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
-    //@CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://localhost:4200")
     public CartDetailAdd createCartDetail(@RequestBody CartDetailAdd cartDetailAdd, CartDetail cartDetail, Product product, Cart cart, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
 
@@ -42,5 +39,11 @@ public class CartApi {
     @CrossOrigin(origins = "http://localhost:4200")
     public List<CartGetDetail> getCartDetail(HttpServletRequest request) {
         return cartBl.getCartDetail();
+    }
+
+    @RequestMapping(value = "/cart/{cartId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<CartGet> getCart(HttpServletRequest request, @PathVariable int cartId ) {
+        return cartBl.getCart(cartId);
     }
 }

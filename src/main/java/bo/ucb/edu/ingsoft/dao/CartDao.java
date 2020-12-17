@@ -1,5 +1,6 @@
 package bo.ucb.edu.ingsoft.dao;
 
+import bo.ucb.edu.ingsoft.dto.CartGet;
 import bo.ucb.edu.ingsoft.dto.CartGetDetail;
 import bo.ucb.edu.ingsoft.model.CartDetail;
 import bo.ucb.edu.ingsoft.model.Order;
@@ -14,4 +15,6 @@ public interface CartDao {
     public void createCartDetail(CartDetail cartDetail);
 
     public List<CartGetDetail> getCartDetail();
+
+    public List<CartGet> getCart(Integer cartId);
 }

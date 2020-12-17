@@ -28,10 +28,10 @@
         FROM `order`
         WHERE order_id = #{orderId}
     </select>
-    <insert id="createOrder" parameterType="bo.ucb.edu.ingsoft.dto.MakeOrder">
+    <insert id="createOrder" parameterType="bo.ucb.edu.ingsoft.model.Order">
         INSERT INTO `order`
         VALUES (
-            null, #{addressId},#{userId},#{cartId},#{deliveryId},"1999-08-22",#{status},#{state},
+            null, #{addressId},1,#{cartId},1,NOW(),#{status},#{state},
             1, #{txId},#{txHost}, #{txUserId}, #{txDate}
         )
     </insert>

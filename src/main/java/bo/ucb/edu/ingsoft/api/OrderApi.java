@@ -2,13 +2,11 @@ package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.OrderBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
-import bo.ucb.edu.ingsoft.dto.MakeOrder;
-import bo.ucb.edu.ingsoft.dto.OrderAddress;
-import bo.ucb.edu.ingsoft.dto.OrderState;
-import bo.ucb.edu.ingsoft.dto.Transaction;
+import bo.ucb.edu.ingsoft.dto.*;
 import bo.ucb.edu.ingsoft.model.Address;
 import bo.ucb.edu.ingsoft.model.Order;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.persistence.OrderColumn;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
@@ -57,11 +56,11 @@ public class OrderApi {
 
 
 
-    @RequestMapping (value = "/order", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
-    public MakeOrder createOrder  (@RequestBody  MakeOrder makeOrder, HttpServletRequest request){
+    @RequestMapping ( method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+    public OrderAdd createOrder  (@RequestBody OrderAdd orderAdd, Address address, Order order, HttpServletRequest request){
         Transaction transaction= TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
-        MakeOrder orderResponse = orderBl.createOrder(makeOrder,transaction);
+        OrderAdd orderResponse = orderBl.createOrder(orderAdd,transaction,address,order);
         return orderResponse;
     }
 }

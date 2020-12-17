@@ -3,10 +3,7 @@ package bo.ucb.edu.ingsoft.bl;
 import bo.ucb.edu.ingsoft.dao.AddressDao;
 import bo.ucb.edu.ingsoft.dao.OrderDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
-import bo.ucb.edu.ingsoft.dto.MakeOrder;
-import bo.ucb.edu.ingsoft.dto.OrderAddress;
-import bo.ucb.edu.ingsoft.dto.OrderState;
-import bo.ucb.edu.ingsoft.dto.Transaction;
+import bo.ucb.edu.ingsoft.dto.*;
 import bo.ucb.edu.ingsoft.model.Address;
 import bo.ucb.edu.ingsoft.model.Order;
 import org.slf4j.LoggerFactory;
@@ -15,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.logging.LoggerConfiguration;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 
 
 @Service
@@ -57,24 +55,31 @@ public class OrderBl {
         return orderAddress;
     }
 
-    public MakeOrder createOrder (MakeOrder makeOrder, Transaction transaction){
-        LOGGER.info(makeOrder.getAddressId().toString());
-        Order order1= new Order();
-        order1.setAddressId(makeOrder.getAddressId());
-        order1.setUserId(makeOrder.getUserId());
-        order1.setCartId(makeOrder.getCartId());
-        order1.setDeliveryId(makeOrder.getDeliveryId());
-        order1.setStatus(makeOrder.getStatus());
-        order1.setState(makeOrder.getState());
-        order1.setTxDate(transaction.getTxDate());
-        order1.setTxUserId(transaction.getTxUserId());
-        order1.setTxHost(transaction.getTxHost());
-        order1.setTxId(transaction.getTxId());
-        orderDao.createOrder(order1);
-        Integer getLastId= transactionDao.getLastInsertId();
+    public OrderAdd createOrder (OrderAdd orderAdd, Transaction transaction, Address address, Order order){
 
-        return makeOrder;
+        address.setNeighbourId(orderAdd.getNeighbourId());
+        address.setNumber(orderAdd.getNumber());
+        address.setReference(orderAdd.getReference());
+        address.setStreet(orderAdd.getStreet());
+        address.setTxDate(transaction.getTxDate());
+        address.setTxId(transaction.getTxId());
+        address.setTxHost(transaction.getTxHost());
+        address.setTxUserId(transaction.getTxUserId());
+        addressDao.create(address);
+        Integer getLastId = transactionDao.getLastInsertId();
+        address.setAddressId(getLastId);
 
+        order.setAddressId(getLastId);
+        order.setState(orderAdd.getState());
+        order.setCartId(orderAdd.getCartId());
+        order.setStatus(orderAdd.getStatus());
+        order.setTxDate(transaction.getTxDate());
+        order.setTxId(transaction.getTxId());
+        order.setTxHost(transaction.getTxHost());
+        order.setTxUserId(transaction.getTxUserId());
+        orderDao.createOrder(order);
+
+        return orderAdd;
 
     }
 }
