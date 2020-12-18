@@ -2,11 +2,17 @@ package bo.ucb.edu.ingsoft.dto;
 
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.NotEmpty;
+
 @Service
 public class OrderAddress {
+    @NotEmpty(message = "el campo no debe estar vacio")
     private Integer neighbourId;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String street;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String number;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String reference;
     public OrderAddress(){
 

@@ -58,7 +58,7 @@ public class CartApi {
         return cartResponse;
     }
 
-    @RequestMapping(value = "/cartDetail/{cartDetailId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/cartDetail/{cartDetailId}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
     @CrossOrigin(origins = "http://localhost:4200")
     public CartDetailDelete deleteCartDetail ( @RequestBody CartDetail cartDetail, CartDetailDelete cartDetailDelete, HttpServletRequest request, @PathVariable int cartDetailId){
 

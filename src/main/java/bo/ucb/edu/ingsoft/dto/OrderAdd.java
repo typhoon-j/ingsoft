@@ -1,14 +1,22 @@
 package bo.ucb.edu.ingsoft.dto;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 public class OrderAdd {
     private Integer neighbourId;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String street;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String number;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String reference;
+    @NotNull(message = "el campo no debe estar vacio")
     private Integer cartId;
+    @NotNull(message = "el campo no debe estar vacio")
     private Integer status;
+    @NotNull(message = "el campo no debe estar vacio")
     private Integer state;
     public OrderAdd(){
 

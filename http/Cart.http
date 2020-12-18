@@ -5,7 +5,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "qtty": 4,
+  "qtty": 0,
   "cartId": 1,
   "productId": 1
 
@@ -25,7 +25,7 @@ Accept: application/json
 
 ###
 
-DELETE http://localhost:8080/cartDetail/12
+PATCH http://localhost:8080/cartDetail/12
 Accept: application/json
 Content-Type: application/json
 

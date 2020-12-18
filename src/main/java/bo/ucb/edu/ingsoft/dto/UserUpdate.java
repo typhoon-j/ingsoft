@@ -2,16 +2,29 @@ package bo.ucb.edu.ingsoft.dto;
 
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 @Service
 public class UserUpdate {
+
     private Integer addressId;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String firstname;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String lastname;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String phone;
+    @Email (message = "el campo debe llenarse con un correo real")
     private String email;
+    @NotNull (message = "el campo no debe estar vacio")
     private Integer neighbourId;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String street;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String number;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String reference;
 
     public UserUpdate(){
