@@ -1,18 +1,32 @@
 package bo.ucb.edu.ingsoft.dto;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 public class ProductAdd {
     private Integer brandId;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String productName;
     private Integer tagId;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String detail;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String model;
+    @NotNull(message = "el campo no debe estar vacio")
+    @Min(value = 1)
     private BigDecimal price;
+    @NotNull(message = "el campo no debe estar vacio")
+    @Min(value = 1)
     private Integer stock;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String description;
+    @NotNull(message = "debe seleccionar una opcion")
     private Boolean storeAvailable;
+    @NotNull(message = "debe seleccionar una opcion")
     private Boolean deliveryAvailable;
+    @NotEmpty(message = "el campo no debe estar vacio")
     private String image;
 
     public Integer getBrandId() {

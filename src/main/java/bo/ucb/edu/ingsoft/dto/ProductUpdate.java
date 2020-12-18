@@ -2,14 +2,21 @@ package bo.ucb.edu.ingsoft.dto;
 
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 
 public class ProductUpdate {
-
+    @NotNull(message = "el campo no debe estar vacio")
+    @Min(value = 1)
     private BigDecimal price;
+    @NotNull(message = "el campo no debe estar vacio")
+    @Min(value = 1)
     private Integer stock;
+    @NotNull(message = "debe seleccionar una opcion")
     private Boolean storeAvailable;
+    @NotNull(message = "debe seleccionar una opcion")
     private Boolean deliveryAvailable;
 
 

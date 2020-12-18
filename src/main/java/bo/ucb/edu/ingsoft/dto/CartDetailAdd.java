@@ -1,8 +1,15 @@
 package bo.ucb.edu.ingsoft.dto;
 
+import org.springframework.format.annotation.NumberFormat;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 public class CartDetailAdd {
     private Integer cartId;
     private Integer productId;
+    @NotNull
+    @Min(value = 1,message = "la cantidad de productos debe ser mayor a 0")
     private Integer qtty;
 
     public CartDetailAdd() {

@@ -4,11 +4,11 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "productName": "Laptop Alienware M15",
+  "productName": "awaw",
   "detail": "procesador i7 8750k",
   "model": "M 15",
-  "price": 12500.5,
-  "stock": 20,
+  "price": 1,
+  "stock": 1,
   "description": "Laptop gamer de 15,3 pulgadas",
   "storeAvailable": true,
   "deliveryAvailable": true,
