@@ -3,6 +3,7 @@ package bo.ucb.edu.ingsoft.dto;
 import java.math.BigDecimal;
 
 public class CartGetDetail {
+    private Integer cartDetailId;
     private String image;
     private String productName;
     private String model;
@@ -10,6 +11,14 @@ public class CartGetDetail {
     private BigDecimal price;
     public CartGetDetail(){
 
+    }
+
+    public Integer getCartDetailId() {
+        return cartDetailId;
+    }
+
+    public void setCartDetailId(Integer cartDetailId) {
+        this.cartDetailId = cartDetailId;
     }
 
     public String getImage() {
@@ -55,7 +64,8 @@ public class CartGetDetail {
     @Override
     public String toString() {
         return "CartGetDetail{" +
-                "image='" + image + '\'' +
+                "cartDetailId=" + cartDetailId +
+                ", image='" + image + '\'' +
                 ", productName='" + productName + '\'' +
                 ", model='" + model + '\'' +
                 ", qtty=" + qtty +
