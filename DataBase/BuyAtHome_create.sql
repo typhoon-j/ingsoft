@@ -1,5 +1,6 @@
+use buyathome;
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2020-11-23 16:17:06.408
+-- Last modification date: 2020-12-17 14:56:38.069
 
 -- tables
 -- Table: address
@@ -60,7 +61,7 @@ CREATE TABLE cart (
 CREATE TABLE cart_detail (
     cart_detail_id int NOT NULL AUTO_INCREMENT,
     cart_id int NOT NULL,
-    product_id int NOT NULL,
+    product_id int NOT NULL unique,
     qtty int NOT NULL,
     tx_status int NOT NULL,
     tx_id int NOT NULL,
@@ -251,7 +252,7 @@ CREATE TABLE user (
     firstname varchar(50) NOT NULL,
     lastname varchar(50) NOT NULL,
     phone varchar(20) NOT NULL,
-    email varchar(50) NOT NULL,
+    email varchar(50) NOT NULL UNIQUE,
     password varchar(50) NOT NULL,
     tx_status int NOT NULL,
     tx_date timestamp NOT NULL,
