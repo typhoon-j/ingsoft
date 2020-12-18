@@ -16,5 +16,5 @@ public interface CartDao {
 
     public List<CartGetDetail> getCartDetail();
 
-    public List<CartGet> getCart(Integer cartId);
+    public List<CartGet> getCart();
 }
