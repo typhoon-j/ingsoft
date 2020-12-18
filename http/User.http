@@ -4,10 +4,10 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "firstname": "Juan",
-  "lastname": "Perez",
+  "firstname": "Allen",
+  "lastname": "Cordova",
   "phone": "+59178945098",
-  "email": "jperez@mail.com",
+  "email": "allen@mail.com",
   "password": "hello_there",
   "neighbourId": 1,
   "street": "Av. Busch",

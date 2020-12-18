@@ -41,10 +41,10 @@ public class CartApi {
         return cartBl.getCartDetail();
     }
 
-    @RequestMapping(value = "/cart/{cartId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/cart", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @CrossOrigin(origins = "http://localhost:4200")
-    public List<CartGet> getCart(HttpServletRequest request, @PathVariable int cartId ) {
-        return cartBl.getCart(cartId);
+    public List<CartGet> getCart(HttpServletRequest request ) {
+        return cartBl.getCart();
     }
 
     @RequestMapping(value = "/cart", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)

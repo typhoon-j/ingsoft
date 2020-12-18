@@ -11,9 +11,11 @@
 
     <select id="getCart" parameterType="int" resultType="bo.ucb.edu.ingsoft.dto.CartGet">
         SELECT
-               a.total as total
+               a.cart_id as cartId,
+               a.total as total,
+               a.is_active as isActive
         FROM cart a
-        WHERE  a.cart_id=#{cartId}
+        WHERE  a.is_active=1
 
     </select>
     <select id="getCartDetail" resultType="bo.ucb.edu.ingsoft.dto.CartGetDetail">
@@ -22,10 +24,10 @@
                a.image as image,
                a.product_name as productName,
                a.model as model,
-               b.qtty as qtty,
+               b.qtty as qtty
+        FROM product a, cart_detail b, cart c
+        WHERE  b.cart_id=c.cart_id AND c.is_active=1 AND b.product_id=a.product_id
 
-        FROM product a, cart_detail b
-        WHERE  b.cart_id=1 AND b.product_id=a.product_id
 
     </select>
     <insert id="createCart" parameterType="bo.ucb.edu.ingsoft.model.Cart">

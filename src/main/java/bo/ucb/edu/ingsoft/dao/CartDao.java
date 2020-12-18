@@ -24,4 +24,7 @@ public interface CartDao {
     public  void createCart(Cart cart);
 
     public void deleteCartDetail(Integer cartDetailId);
+
+    public List<CartGet> getCart();
+
 }

@@ -42,8 +42,8 @@ public class CartBl {
         return cartDao.getCartDetail();
     }
 
-    public List<CartGet> getCart(Integer cartId){
-        return  cartDao.getCart(cartId);
+    public List<CartGet> getCart( ){
+        return  cartDao.getCart( );
     }
 
     public CartAdd createCart(Cart cart, Transaction transaction, CartAdd cartAdd){
