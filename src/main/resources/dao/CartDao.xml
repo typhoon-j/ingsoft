@@ -39,8 +39,7 @@
         )
     </insert>
     <update id="deleteCartDetail" parameterType="int" >
-        UPDATE  cart_detail
-        SET tx_status = 0
+        DELETE  FROM cart_detail
         WHERE cart_detail_id = #{cartDetailId}
 
     </update>

@@ -14,7 +14,7 @@ public class UserCreate {
     private String lastname;
     @NotEmpty (message = "el campo no debe estar vacio")
     private String phone;
-    @Email
+    @Email (message = "el campo debe ser llenado con un correo verdadero")
     private String email;
     @NotNull (message = "el campo no debe estar vacio")
     private String password;

@@ -9,10 +9,10 @@ import java.math.BigDecimal;
 
 public class ProductUpdate {
     @NotNull(message = "el campo no debe estar vacio")
-    @Min(value = 1)
+    @Min(value = 1, message = "el valor minimo para el precio no debe ser menor a 1")
     private BigDecimal price;
     @NotNull(message = "el campo no debe estar vacio")
-    @Min(value = 1)
+    @Min(value = 1, message = "el valor minimo que debe añadirse a stock debe ser 1")
     private Integer stock;
     @NotNull(message = "debe seleccionar una opcion")
     private Boolean storeAvailable;
