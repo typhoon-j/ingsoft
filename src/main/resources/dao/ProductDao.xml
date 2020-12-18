@@ -92,4 +92,8 @@
         SELECT brand_id as brandId, name as name
         FROM brand
     </select>
+    <select id="getCategory" resultType="bo.ucb.edu.ingsoft.dto.CategoryGet">
+        SELECT tag_id as tagId, category as category
+        FROM tag
+    </select>
 </mapper>

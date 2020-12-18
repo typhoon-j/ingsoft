@@ -63,3 +63,7 @@ GET http://localhost:8080/products/brand
 Accept: application/json
 
 ###
+GET http://localhost:8080/products/category
+Accept: application/json
+
+###

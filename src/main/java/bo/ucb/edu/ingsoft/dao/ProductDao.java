@@ -26,4 +26,6 @@ public interface ProductDao {
     public List<ProductGetDetail> getProductDetail(Integer productId);
 
     public List<BrandGet> getBrand();
+
+    public List<CategoryGet> getCategory();
 }

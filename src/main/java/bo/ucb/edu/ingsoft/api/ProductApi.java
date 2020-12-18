@@ -92,4 +92,10 @@ public class ProductApi {
     public List<BrandGet> getBrand(HttpServletRequest request) {
         return productBl.getBrand();
     }
+
+    @RequestMapping(value = "/category", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<CategoryGet> getCategory(HttpServletRequest request) {
+        return productBl.getCategory();
+    }
 }
