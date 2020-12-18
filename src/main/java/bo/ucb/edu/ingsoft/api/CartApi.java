@@ -46,4 +46,22 @@ public class CartApi {
     public List<CartGet> getCart(HttpServletRequest request, @PathVariable int cartId ) {
         return cartBl.getCart(cartId);
     }
+
+    @RequestMapping(value = "/cart", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
+    public CartAdd createCart(@RequestBody  Cart cart,CartAdd cartAdd, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+
+        transactionBl.createTransaction(transaction);
+        CartAdd cartResponse = cartBl.createCart(cart, transaction,cartAdd);
+        return cartResponse;
+    }
+
+    @RequestMapping(value = "/cartDetail/{cartDetailId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
+    public CartDetailDelete deleteCartDetail (@RequestBody CartDetail cartDetail,CartDetailDelete cartDetailDelete, HttpServletRequest request, @PathVariable int cartDetailId){
+
+        CartDetailDelete productResponse = cartBl.deleteCartDetail(cartDetailDelete, cartDetailId);
+        return productResponse;
+    }
 }

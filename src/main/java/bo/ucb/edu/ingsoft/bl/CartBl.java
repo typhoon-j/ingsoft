@@ -2,10 +2,7 @@ package bo.ucb.edu.ingsoft.bl;
 
 import bo.ucb.edu.ingsoft.dao.CartDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
-import bo.ucb.edu.ingsoft.dto.CartDetailAdd;
-import bo.ucb.edu.ingsoft.dto.CartGet;
-import bo.ucb.edu.ingsoft.dto.CartGetDetail;
-import bo.ucb.edu.ingsoft.dto.Transaction;
+import bo.ucb.edu.ingsoft.dto.*;
 import bo.ucb.edu.ingsoft.model.Cart;
 import bo.ucb.edu.ingsoft.model.CartDetail;
 import bo.ucb.edu.ingsoft.model.Product;
@@ -48,4 +45,21 @@ public class CartBl {
     public List<CartGet> getCart(Integer cartId){
         return  cartDao.getCart(cartId);
     }
+
+    public CartAdd createCart(Cart cart, Transaction transaction, CartAdd cartAdd){
+        cart.setTxId(transaction.getTxId());
+        cart.setTxHost(transaction.getTxHost());
+        cart.setTxUserId(transaction.getTxUserId());
+        cart.setTxDate(transaction.getTxDate());
+        cartDao.createCart(cart);
+
+        return cartAdd;
+    }
+
+    public CartDetailDelete deleteCartDetail(CartDetailDelete cartDetailDelete, Integer cartDetailId){
+
+        cartDao.deleteCartDetail(cartDetailId);
+        return cartDetailDelete;
+    }
+
 }
